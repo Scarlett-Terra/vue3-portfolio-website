@@ -143,12 +143,18 @@
           <footer class="footer-card">
             <p>持續學習，持續實作，<br>期待用更好的使用者體驗創造價值。</p>
             <div class="qr-group">
-              <div class="qr-item"><span>作品集 Portfolio</span>
-                <div class="qr-placeholder">QR</div>
-              </div>
-              <div class="qr-item"><span>程式碼 GitHub</span>
-                <div class="qr-placeholder">QR</div>
-              </div>
+              <a class="qr-item" :href="portfolioUrl" target="_blank" rel="noopener noreferrer"
+                aria-label="掃描或開啟 Scarlett Yu 的作品集網站">
+                <span>作品集 Portfolio</span>
+                <img :src="portfolioQrUrl" alt="作品集網站 QR Code" class="qr-code" />
+                <small>掃碼查看作品 Demo</small>
+              </a>
+              <a class="qr-item" :href="githubUrl" target="_blank" rel="noopener noreferrer"
+                aria-label="掃描或開啟 Scarlett-Terra 的 GitHub">
+                <span>程式碼 GitHub</span>
+                <img :src="githubQrUrl" alt="GitHub QR Code" class="qr-code" />
+                <small>掃碼查看原始碼</small>
+              </a>
             </div>
           </footer>
         </main>
@@ -159,6 +165,10 @@
 <script setup>
 const resumePdfUrl = `${import.meta.env.BASE_URL}resume.pdf`
 const profilePhotoUrl = `${import.meta.env.BASE_URL}images/profile/resume-photo.jpg`
+const portfolioQrUrl = `${import.meta.env.BASE_URL}qr/portfolio-demo-home.png`
+const githubQrUrl = `${import.meta.env.BASE_URL}qr/portfolio-github.png`
+const portfolioUrl = 'https://scarlett-terra.github.io/vue3-portfolio-website/'
+const githubUrl = 'https://github.com/Scarlett-Terra/vue3-portfolio-website'
 </script>
 
 <style scoped>
@@ -676,25 +686,33 @@ h3 {
 .qr-item {
   display: grid;
   justify-items: center;
+  padding: 4px 12px;
   color: var(--purple);
   font-weight: 700;
+  text-align: center;
 }
 
 .qr-item+.qr-item {
   border-left: 1px solid #8e86a8;
 }
 
-.qr-placeholder {
-  display: grid;
-  width: 76px;
+.qr-code {
+  display: block;
+  width: 112px;
   aspect-ratio: 1;
   margin-top: 7px;
-  place-items: center;
-  border: 2px dashed #b4abc8;
-  border-radius: 8px;
-  color: #aaa1bd;
-  background: rgba(255, 255, 255, 0.82);
-  font-size: 0.85rem;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(52, 44, 120, 0.12);
+}
+
+.qr-item small {
+  margin-top: 5px;
+  color: #6f6788;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 860px) {
@@ -957,8 +975,14 @@ h3 {
     font-size: 1.6rem;
   }
 
-  .qr-placeholder {
-    width: 76px;
+  .qr-code {
+    width: 112px;
+    border-width: 4px;
+    box-shadow: none;
+  }
+
+  .qr-item small {
+    font-size: 0.78rem;
   }
 
   .card,
