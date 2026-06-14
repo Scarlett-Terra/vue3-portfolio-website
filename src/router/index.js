@@ -21,8 +21,6 @@ const router = createRouter({
       component: ProjectsView,
     },
     {
-      // 🌟 修正 1【超級大魔王】：這裡一定要改成 '/projects/:id'（加上 s ！）
-      // 這樣一來，ProjectsView 發送的 '/projects/travel-web' 才能完美走進這條規則！
       path: '/projects/:id',
       name: 'project-detail',
       component: ProjectDetailView,

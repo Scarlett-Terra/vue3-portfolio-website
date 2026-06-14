@@ -18,7 +18,7 @@
           <div class="browser-card">
             <div class="browser-bar"><i></i><i></i><i></i><span>travel-explore.vue</span></div>
             <div class="browser-image">
-              <img :src="heroProject.image" alt="旅遊網站畫面示意" />
+              <img :src="heroProject.image" :alt="`${heroProject.title}畫面示意`" />
               <div class="browser-title">探索世界的美好</div>
             </div>
             <div class="browser-content">
@@ -29,7 +29,7 @@
           </div>
           <div class="mobile-card">
             <div class="mobile-speaker"></div>
-            <img :src="heroProject.image" alt="旅遊網站手機版示意" />
+            <img :src="heroProject.image" :alt="`${heroProject.title}手機版示意`" />
             <strong>旅行靈感</strong>
             <span>精選目的地</span>
             <span>隨時探索行程</span>

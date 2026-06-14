@@ -1,20 +1,6 @@
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 export const projects = [
-  {
-    id: 'travel-web',
-    order: 1,
-    title: '旅遊網站',
-    type: 'Web Development',
-    year: '2026',
-    description: '使用 Vue 製作的響應式旅遊資訊平台，整合景點瀏覽、行程規劃與分類搜尋功能。',
-    features: ['景點導覽', '行程規劃', 'RWD 響應式設計'],
-    detailDescription:
-      '這是一個旅行社介紹網站，採用 Vue 響應式架構搭建，包含景點導覽、每日行程規劃以及在地美食推薦功能。',
-    image: 'https://picsum.photos/800/450?random=1',
-    technologies: ['Vue.js', 'CSS', 'API', 'HTML', 'UI/UX'],
-    github: 'https://github.com/Scarlett-Terra/Chung-Hsing-University-Front-end-Technology-Course',
-    hasDetailPage: true,
-    demoLinks: [],
-  },
   {
     id: 'cart-app',
     order: 2,
@@ -349,13 +335,19 @@ export const projects = [
     features: ['影像合成', '色彩調整', '視覺排版'],
     detailDescription:
       '此合集收錄平面設計與影像合成作品，透過實際演練掌握遮色片、圖層混合模式及色調調整等核心技術。',
-    image: '/images/photoshop/ps-09-purple-blue-seascape-simulation.png',
+    image: publicAsset('images/photoshop/ps-09-purple-blue-seascape-simulation.png'),
     technologies: ['Photoshop', 'UI/UX', '視覺設計'],
     isGallery: true,
     images: [
-      { id: 'banner1', thumbnail: '/images/photoshop/ps-09-purple-blue-seascape-simulation.png', full: '/images/photoshop/ps-09-purple-blue-seascape-simulation.png', alt: '海洋調色創意設計' },
-      { id: 'poster1', thumbnail: '/images/photoshop/ps-08-newlywed-outdoor-photoshoot-color-grading.jpg', full: '/images/photoshop/ps-08-newlywed-outdoor-photoshoot-color-grading.jpg', alt: '婚禮視覺調色' },
-      { id: 'brand1', thumbnail: '/images/photoshop/ps-07-bag-synthesis.png', full: '/images/photoshop/ps-07-bag-synthesis.png', alt: '產品視覺設計' },
+      { id: 'ps-09', thumbnail: publicAsset('images/photoshop/ps-09-purple-blue-seascape-simulation.png'), full: publicAsset('images/photoshop/ps-09-purple-blue-seascape-simulation.png'), alt: '紫藍色海景調色模擬' },
+      { id: 'ps-08', thumbnail: publicAsset('images/photoshop/ps-08-newlywed-outdoor-photoshoot-color-grading.jpg'), full: publicAsset('images/photoshop/ps-08-newlywed-outdoor-photoshoot-color-grading.jpg'), alt: '新人戶外寫真調色' },
+      { id: 'ps-07', thumbnail: publicAsset('images/photoshop/ps-07-bag-synthesis.png'), full: publicAsset('images/photoshop/ps-07-bag-synthesis.png'), alt: '包包產品影像合成' },
+      { id: 'ps-06', thumbnail: publicAsset('images/photoshop/ps-06-creative-design-of-car-background.jpg'), full: publicAsset('images/photoshop/ps-06-creative-design-of-car-background.jpg'), alt: '汽車背景創意合成' },
+      { id: 'ps-05', thumbnail: publicAsset('images/photoshop/ps-05-portrait-blemish-removal+makeup.jpg'), full: publicAsset('images/photoshop/ps-05-portrait-blemish-removal+makeup.jpg'), alt: '人像修瑕與妝容調整' },
+      { id: 'ps-04', thumbnail: publicAsset('images/photoshop/ps-04-soccer-Ball.jpg'), full: publicAsset('images/photoshop/ps-04-soccer-Ball.jpg'), alt: '足球主題影像設計' },
+      { id: 'ps-03', thumbnail: publicAsset('images/photoshop/ps-03-red-apple-turns-green.jpg'), full: publicAsset('images/photoshop/ps-03-red-apple-turns-green.jpg'), alt: '紅蘋果轉綠色練習' },
+      { id: 'ps-02', thumbnail: publicAsset('images/photoshop/ps-02-slimming-face-skin-tone-correction.jpg'), full: publicAsset('images/photoshop/ps-02-slimming-face-skin-tone-correction.jpg'), alt: '瘦臉與膚色校正' },
+      { id: 'ps-01', thumbnail: publicAsset('images/photoshop/ps-01-christmas-ball-coloring.jpg'), full: publicAsset('images/photoshop/ps-01-christmas-ball-coloring.jpg'), alt: '聖誕球上色練習' },
     ],
   },
   {
@@ -367,12 +359,23 @@ export const projects = [
     description: '向量線條、圖示繪製與 AI 生成圖練習。',
     features: ['向量繪圖', '角色設計', 'AI 圖像編輯'],
     detailDescription: '本相簿專注於向量線條、圖示繪製、AI 線上製圖與圖像編輯訓練。',
-    image: '/images/illustrator/ai-08-pen-drawing.jpg',
+    image: publicAsset('images/illustrator/ai-08-pen-drawing.jpg'),
     technologies: ['Illustrator', '向量插畫', 'AI生成圖'],
     isGallery: true,
     images: [
-      { id: 'icon-set', thumbnail: '/images/illustrator/ai-10-chatgpt-girl.png', full: '/images/illustrator/ai-10-chatgpt-girl.png', alt: 'AI 生成模型：女孩' },
-      { id: 'vector-char', thumbnail: '/images/illustrator/ai-12-chatgpt-man.png', full: '/images/illustrator/ai-12-chatgpt-man.png', alt: 'AI 生成模型：男孩' },
+      { id: 'ai-13', thumbnail: publicAsset('images/illustrator/ai-13-comfyui-prettyGirl.png'), full: publicAsset('images/illustrator/ai-13-comfyui-prettyGirl.png'), alt: 'ComfyUI AI 女孩生成圖' },
+      { id: 'ai-12', thumbnail: publicAsset('images/illustrator/ai-12-chatgpt-man.png'), full: publicAsset('images/illustrator/ai-12-chatgpt-man.png'), alt: 'ChatGPT AI 男孩生成圖' },
+      { id: 'ai-11', thumbnail: publicAsset('images/illustrator/ai-11-gemini-man.png'), full: publicAsset('images/illustrator/ai-11-gemini-man.png'), alt: 'Gemini AI 男孩生成圖' },
+      { id: 'ai-10', thumbnail: publicAsset('images/illustrator/ai-10-chatgpt-girl.png'), full: publicAsset('images/illustrator/ai-10-chatgpt-girl.png'), alt: 'ChatGPT AI 女孩生成圖' },
+      { id: 'ai-09', thumbnail: publicAsset('images/illustrator/ai-09-gemini-AI-Q-girl.png'), full: publicAsset('images/illustrator/ai-09-gemini-AI-Q-girl.png'), alt: 'Gemini AI Q 版女孩生成圖' },
+      { id: 'ai-08', thumbnail: publicAsset('images/illustrator/ai-08-pen-drawing.jpg'), full: publicAsset('images/illustrator/ai-08-pen-drawing.jpg'), alt: '鋼筆工具向量繪圖' },
+      { id: 'ai-07', thumbnail: publicAsset('images/illustrator/ai-07-creative-design-of-high-rise-buildings.jpg'), full: publicAsset('images/illustrator/ai-07-creative-design-of-high-rise-buildings.jpg'), alt: '高樓建築創意設計' },
+      { id: 'ai-06', thumbnail: publicAsset('images/illustrator/ai-06-final-version-of-the-geometric-shape.jpg'), full: publicAsset('images/illustrator/ai-06-final-version-of-the-geometric-shape.jpg'), alt: '幾何造型完稿' },
+      { id: 'ai-05', thumbnail: publicAsset('images/illustrator/ai-05-beginner-in-geometry.jpg'), full: publicAsset('images/illustrator/ai-05-beginner-in-geometry.jpg'), alt: '幾何圖形入門練習' },
+      { id: 'ai-04', thumbnail: publicAsset('images/illustrator/ai-04-moon-sketch.jpg'), full: publicAsset('images/illustrator/ai-04-moon-sketch.jpg'), alt: '月亮草圖' },
+      { id: 'ai-03', thumbnail: publicAsset('images/illustrator/ai-03-moon-and-starry-sky.jpg'), full: publicAsset('images/illustrator/ai-03-moon-and-starry-sky.jpg'), alt: '月亮與星空插畫' },
+      { id: 'ai-02', thumbnail: publicAsset('images/illustrator/ai-02-myName.jpg'), full: publicAsset('images/illustrator/ai-02-myName.jpg'), alt: '姓名文字設計' },
+      { id: 'ai-01', thumbnail: publicAsset('images/illustrator/ai-01-umbrella.png'), full: publicAsset('images/illustrator/ai-01-umbrella.png'), alt: '雨傘向量圖示' },
     ],
   },
 ]
