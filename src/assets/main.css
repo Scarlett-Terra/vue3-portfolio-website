@@ -1,0 +1,88 @@
+:root {
+  font-family: Inter, "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+  color: #1e293b;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #f8fafc;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+.page-shell {
+  width: min(calc(66.6667vw + 6rem), calc(100% - 2rem), 1360px);
+  margin-inline: auto;
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+@media (max-width: 900px) {
+  .page-shell {
+    width: min(calc(100% - 2rem), 1100px);
+  }
+}
+
+@media (max-width: 576px) {
+  .page-shell {
+    width: min(calc(100% - 1.5rem), 1100px);
+  }
+}
+
+.page-title {
+  margin: 0 0 clamp(2rem, 5vw, 3rem);
+  color: #1e293b;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  text-align: center;
+}
+
+/* SweetAlert is rendered outside Vue's component tree, so these styles must be global. */
+.swal2-container .swal-custom-popup {
+  width: min(520px, calc(100% - 2rem));
+  padding: 2rem;
+  border-radius: 16px;
+  font-family: inherit;
+}
+
+.swal2-popup .swal-custom-title { padding-top: 10px; color: #1e1b4b; font-size: 1.5rem; font-weight: 700; }
+.swal-custom-body { margin-top: 1rem; color: #475569; font-size: .95rem; line-height: 1.6; text-align: left; }
+.swal-section-title { margin: 1.5rem 0 .5rem; padding-left: 8px; color: #1e1b4b; font-size: 1.05rem; font-weight: 700; }
+.swal-section-title.title-journey { border-left: 4px solid #4f46e5; }
+.swal-section-title.title-advantage { border-left: 4px solid #10b981; }
+.swal-section-p { margin: 0 0 1rem; }
+.swal-egg-card { margin-top: 1.5rem; padding: 12px; border: 1px dashed #cbd5e1; border-radius: 8px; background: #f1f5f9; color: #334155; font-size: .88rem; }
+.swal-custom-confirm-btn { margin-top: 1.5rem; padding: 10px 32px; border: 0; border-radius: 8px; background: #1e1b4b; color: #fff; cursor: pointer; font-size: 1rem; font-weight: 600; }
+.swal-custom-confirm-btn:hover { background: #312e81; }
+.swal-contact-container { display: flex; flex-direction: column; gap: 12px; margin-top: 1.5rem; }
+.contact-link-btn { display: flex; align-items: center; justify-content: center; padding: 14px; border-radius: 10px; color: #fff; font-size: .95rem; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.contact-link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgb(0 0 0 / 10%); }
+.mail-btn { background: #4f46e5; }
+.github-btn { background: #1e293b; }
+.resume-btn { background: #10b981; }
