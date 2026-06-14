@@ -5,7 +5,7 @@
 ## Online
 
 - Portfolio: https://scarlett-terra.github.io/vue3-portfolio-website/
-- Projects: https://scarlett-terra.github.io/vue3-portfolio-website/projects
+- Projects: https://scarlett-terra.github.io/vue3-portfolio-website/#/projects
 - GitHub: https://github.com/Scarlett-Terra/vue3-portfolio-website
 
 ## Development
@@ -21,4 +21,4 @@ npm run dev
 npm run build
 ```
 
-正式建置輸出至 `docs/`，供 GitHub Pages 使用。`404.html` 用來支援 Vue Router 詳細頁重新整理。
+正式建置輸出至 `docs/`，供 GitHub Pages 使用。正式站採用 Hash Router，確保所有作品詳細頁都能直接開啟。
