@@ -17,8 +17,8 @@
         <div class="hero-visual" aria-label="個人作品響應式畫面輪播">
           <div class="browser-card">
             <div class="browser-bar"><i></i><i></i><i></i><span>{{ heroProject.id }}.vue</span></div>
-            <div class="browser-image">
-              <Transition name="hero-image-fade" mode="out-in">
+            <div class="browser-image" :style="{ backgroundImage: `url(${heroProject.image})` }">
+              <Transition name="hero-image-fade">
                 <img :key="heroProject.id" :src="heroProject.image" :alt="`${heroProject.title}畫面示意`" />
               </Transition>
               <div class="browser-title">{{ heroProject.title }}</div>
@@ -31,8 +31,8 @@
           </div>
           <div class="mobile-card">
             <div class="mobile-speaker"></div>
-            <div class="mobile-image-frame">
-              <Transition name="hero-image-fade" mode="out-in">
+            <div class="mobile-image-frame" :style="{ backgroundImage: `url(${heroProject.image})` }">
+              <Transition name="hero-image-fade">
                 <img :key="heroProject.id" :src="heroProject.image" :alt="`${heroProject.title}手機版示意`" />
               </Transition>
             </div>
@@ -339,6 +339,8 @@ const problemSolving = [
   position: relative;
   height: 210px;
   overflow: hidden;
+  background-position: center;
+  background-size: cover;
 }
 
 .browser-image img {
@@ -447,6 +449,8 @@ const problemSolving = [
   border-radius: 15px;
   overflow: hidden;
   background: #e2e8f0;
+  background-position: center;
+  background-size: cover;
 }
 
 .mobile-card img {
