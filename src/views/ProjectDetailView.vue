@@ -1,13 +1,14 @@
 <template>
     <div class="project-detail-page page-shell">
-        <button type="button" class="back-btn" @click="goBack">← 回到作品列表</button>
+        
 
         <div class="detail-container" v-if="currentProject">
 
-            <div class="banner-wrapper" v-if="!currentProject.isGallery">
+            <div class="banner-wrapper" v-if="!currentProject.isGallery"
+                :style="{ '--banner-image': `url(${currentProject.image})` }">
                 <img :src="currentProject.image" class="detail-banner" :alt="currentProject.title" />
             </div>
-
+            
             <div class="design-gallery" v-else>
                 <button v-for="(img, index) in currentProject.images" :key="img.id" type="button"
                     class="gallery-item" :aria-label="`放大查看：${img.alt}`" @click="openLightbox(index)">
@@ -17,7 +18,7 @@
                     </div>
                 </button>
             </div>
-
+            <button type="button" class="back-btn" @click="goBack">← 回到作品列表</button>
             <h2 class="detail-title">{{ currentProject.title }}</h2>
 
             <div class="tech-tags">
@@ -175,18 +176,42 @@ const goBack = () => {
 }
 
 .banner-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 2rem;
+    background: #e2e8f0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+.banner-wrapper::before {
+    position: absolute;
+    inset: -24px;
+    background: var(--banner-image) center / cover no-repeat;
+    content: "";
+    filter: blur(18px) saturate(0.85);
+    opacity: 0.38;
+    transform: scale(1.06);
+}
+
+.banner-wrapper::after {
+    position: absolute;
+    inset: 0;
+    background: rgba(248, 250, 252, 0.22);
+    content: "";
+}
+
 .detail-banner {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    height: auto;
-    max-height: 380px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: block;
 }
 
@@ -386,6 +411,15 @@ const goBack = () => {
 
 /* 簡單的行動版 RWD 調整 */
 @media (max-width: 576px) {
+    .detail-container {
+        padding: 1rem;
+    }
+
+    .banner-wrapper {
+        margin-bottom: 1.5rem;
+        border-radius: 9px;
+    }
+
     .action-links {
         flex-direction: column;
     }

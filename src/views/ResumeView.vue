@@ -14,161 +14,160 @@
     </header>
 
     <section class="resume-content" aria-label="履歷內容">
-        <main class="resume">
-          <header class="hero">
-            <div class="portrait" :style="{ backgroundImage: `url(${profilePhotoUrl})` }" role="img"
-              aria-label="徐詩妤個人照片"></div>
-            <div class="hero-content">
-              <h1>徐詩妤</h1>
-              <p class="job-title">Vue Frontend Developer</p>
-              <p class="intro">累積 14 年跨領域職場經驗，<br>現專注於 Vue 3 開發與使用者介面實作。</p>
-            </div>
-          </header>
+      <main class="resume">
+        <header class="hero">
+          <div class="portrait" :style="{ backgroundImage: `url(${profilePhotoUrl})` }" role="img" aria-label="徐詩妤個人照片">
+          </div>
+          <div class="hero-content">
+            <h1>徐詩妤</h1>
+            <p class="job-title">Vue Frontend Developer</p>
+            <p class="intro">累積 14 年跨領域職場經驗，<br>現專注於 Vue 3 開發與使用者介面實作。</p>
+          </div>
+        </header>
 
-          <div class="resume-grid">
-            <aside class="sidebar">
-              <section class="card about">
-                <h2>關於我</h2>
-                <span class="title-mark" aria-hidden="true"></span>
-                <p>經營管理系畢業，擁有14年跨領域工作經驗，曾擔任客服專員、社群營運人員及室內設計助理。</p>
-                <p>過往工作累積了需求溝通、流程規劃與問題追蹤的能力，培養出從使用者角度思考產品與優化體驗的習慣。</p>
-                <p>2026年3月投入前端開發領域，完成前端工程師培訓課程，持續透過作品實踐技術能力，期待在實務中不斷成長。</p>
-              </section>
+        <div class="resume-grid">
+          <aside class="sidebar">
+            <section class="card about">
+              <h2>關於我</h2>
+              <span class="title-mark" aria-hidden="true"></span>
+              <p>經營管理系畢業，擁有14年跨領域工作經驗，曾擔任客服專員、社群營運人員及室內設計助理。</p>
+              <p>過往工作累積了需求溝通、流程規劃與問題追蹤的能力，培養出從使用者角度思考產品與優化體驗的習慣。</p>
+              <p>2026年3月投入前端開發領域，完成前端工程師培訓課程，持續透過作品實踐技術能力，期待在實務中不斷成長。</p>
+            </section>
 
-              <section class="card contact">
-                <h2>聯絡資訊</h2>
-                <ul class="contact-list">
-                  <li>
-                    <span aria-hidden="true">☎</span>
-                    <a class="contact-link" href="tel:+886981041343" aria-label="撥打電話 0981-041-343">0981-041-343</a>
-                  </li>
-                  <li><span aria-hidden="true">✉</span><a
-                      href="mailto:asdqwe1456321@gmail.com">asdqwe1456321@gmail.com</a></li>
-                  <li>
-                    <svg class="github-icon" viewBox="0 0 24 24" role="img" aria-label="GitHub">
-                      <path
-                        d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.52-1.35-1.29-1.7-1.29-1.7-1.05-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.8 2.72 1.28 3.38.98.1-.76.41-1.28.74-1.58-2.57-.3-5.28-1.3-5.28-5.75 0-1.27.45-2.31 1.19-3.13-.12-.3-.52-1.48.11-3.08 0 0 .97-.31 3.17 1.2a10.9 10.9 0 0 1 5.77 0c2.2-1.51 3.17-1.2 3.17-1.2.63 1.6.23 2.78.11 3.08.74.82 1.19 1.86 1.19 3.13 0 4.47-2.72 5.45-5.3 5.74.42.36.79 1.07.79 2.16v3.2c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z" />
-                    </svg>
-                    <a href="https://github.com/Scarlett-Terra" target="_blank" rel="noopener noreferrer"
-                      aria-label="開啟 Scarlett-Terra 的 GitHub">github.com/Scarlett-Terra</a>
-                  </li>
-                  <li>
-                    <svg class="contact-icon location-icon" viewBox="0 0 24 24" role="img" aria-label="居住地點">
-                      <path
-                        d="m15.5 4-7-2L2 4.5v17L8.5 19l7 2 6.5-2.5v-17L15.5 4Zm-1 14.7-5-1.43V4.3l5 1.43V18.7Zm-10.5.07V5.87l3.5-1.35v12.94L4 18.77Zm16-1.64-3.5 1.35V5.54L20 4.19v12.94Z" />
-                    </svg>
-                    <span class="contact-text">居住：台中市</span>
-                  </li>
-                </ul>
-              </section>
+            <section class="card contact">
+              <h2>聯絡資訊</h2>
+              <ul class="contact-list">
+                <li>
+                  <span aria-hidden="true">☎</span>
+                  <a class="contact-link" href="tel:+886981041343" aria-label="撥打電話 0981-041-343">0981-041-343</a>
+                </li>
+                <li><span aria-hidden="true">✉</span><a
+                    href="mailto:asdqwe1456321@gmail.com">asdqwe1456321@gmail.com</a></li>
+                <li>
+                  <SvgIcon class="contact-svg github-icon" :path="iconPaths.github" />
+                  <a href="https://github.com/Scarlett-Terra" target="_blank" rel="noopener noreferrer"
+                    aria-label="開啟 Scarlett-Terra 的 GitHub">github.com/Scarlett-Terra</a>
+                </li>
+                <li>
+                  <SvgIcon class="contact-svg location-icon" :path="iconPaths.location" />
+                  <span class="contact-text">居住：台中市</span>
+                </li>
+              </ul>
+            </section>
 
-              <section class="card skills">
-                <h2>技術能力</h2>
-                <ul class="skill-list">
-                  <li><strong>前端開發</strong><span>Vue 3、JavaScript、Vite、Pinia</span></li>
-                  <li><strong>介面實作</strong><span>HTML、CSS / SCSS、RWD 響應式設計</span></li>
-                  <li><strong>資料串接</strong><span>Axios、REST API 基礎應用</span></li>
-                  <li><strong>開發協作</strong><span>Git、GitHub、Figma</span></li>
-                  <li><strong>AI 輔助</strong><span>需求整理、提示設計、程式除錯與迭代</span></li>
-                </ul>
-              </section>
-            </aside>
+            <section class="card skills">
+              <h2>技術能力</h2>
+              <ul class="skill-list">
+                <li><strong>前端開發</strong><span>Vue 3、JavaScript、Vite、Pinia</span></li>
+                <li><strong>介面實作</strong><span>HTML、CSS / SCSS、RWD 響應式設計</span></li>
+                <li><strong>資料串接</strong><span>Axios、REST API 基礎應用</span></li>
+                <li><strong>開發協作</strong><span>Git、GitHub、Figma</span></li>
+                <li><strong>AI 輔助</strong><span>需求整理、提示設計、程式除錯與迭代</span></li>
+              </ul>
+            </section>
+          </aside>
 
-            <div class="main-content">
-              <section class="card experience">
-                <h2 class="line-title"><span>職涯經歷</span></h2>
+          <div class="main-content">
+            <section class="card experience">
+              <h2 class="line-title"><span>職涯經歷</span></h2>
+              <article>
+                <h3>客服專員</h3>
+                <p>提供客戶諮詢服務，處理問題與需求，培養同理心與解決問題的能力。
+                </p>
+              </article>
+              <article>
+                <h3>社群營運人員</h3>
+                <p>負責社群經營、內容企劃與會員互動，提升品牌曝光與用戶參與度。</p>
+              </article>
+              <article>
+                <h3>室內設計助理</h3>
+                <p>協助設計與專案執行，培養對視覺細節、空間比例與使用者體驗的敏銳度。</p>
+              </article>
+            </section>
+
+            <section class="card strengths">
+              <h2 class="line-title"><span>職場優勢</span></h2>
+              <div class="strength-grid">
+                <article class="strength purple">
+                  <div>
+                    <h3>使用者思維</h3>
+                    <p>善於理解需求與操作流程，習慣從使用者角度思考介面體驗。</p>
+                  </div>
+                </article>
+                <article class="strength peach">
+                  <div>
+                    <h3>問題分析</h3>
+                    <p>遇到問題時會主動查找資料，拆解原因並持續追蹤改善。</p>
+                  </div>
+                </article>
+                <article class="strength blue">
+                  <div>
+                    <h3>團隊協作</h3>
+                    <p>具客服與跨職能工作經驗，能快速理解需求並有效溝通。</p>
+                  </div>
+                </article>
+                <article class="strength green">
+                  <div>
+                    <h3>AI 協作開發</h3>
+                    <p>運用 AI 輔助需求整理、企劃與痛點分析，逐步形成設計稿與 Vue 3 網站架構，並練習驗證、除錯及調整產出。</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="card education">
+              <h2>學歷</h2>
+              <div class="education-grid">
                 <article>
-                  <h3>客服專員</h3>
-                  <p>提供客戶諮詢服務，處理問題與需求，培養同理心與解決問題的能力。
-                  </p>
+                  <h3>明志科技大學</h3>
+                  <p>經營管理系 四技畢業</p>
+                  <time datetime="2014-06">2014 / 06</time>
                 </article>
                 <article>
-                  <h3>社群營運人員</h3>
-                  <p>負責社群經營、內容企劃與會員互動，提升品牌曝光與用戶參與度。</p>
+                  <h3>前端網頁工程師養成班</h3>
+                  <p>（職訓班結業）</p>
+                  <time datetime="2026-06-30">2026 / 06 / 30</time>
                 </article>
-                <article>
-                  <h3>室內設計助理</h3>
-                  <p>協助設計與專案執行，培養對視覺細節、空間比例與使用者體驗的敏銳度。</p>
-                </article>
-              </section>
+              </div>
+            </section>
+          </div>
+        </div>
 
-              <section class="card strengths">
-                <h2 class="line-title"><span>職場優勢</span></h2>
-                <div class="strength-grid">
-                  <article class="strength purple">
-                    <div>
-                      <h3>使用者思維</h3>
-                      <p>善於理解需求與操作流程，習慣從使用者角度思考介面體驗。</p>
-                    </div>
-                  </article>
-                  <article class="strength peach">
-                    <div>
-                      <h3>問題分析</h3>
-                      <p>遇到問題時會主動查找資料，拆解原因並持續追蹤改善。</p>
-                    </div>
-                  </article>
-                  <article class="strength blue">
-                    <div>
-                      <h3>團隊協作</h3>
-                      <p>具客服與跨職能工作經驗，能快速理解需求並有效溝通。</p>
-                    </div>
-                  </article>
-                  <article class="strength green">
-                    <div>
-                      <h3>AI 協作開發</h3>
-                      <p>運用 AI 輔助需求整理、企劃與痛點分析，逐步形成設計稿與 Vue 3 網站架構，並練習驗證、除錯及調整產出。</p>
-                    </div>
-                  </article>
-                </div>
-              </section>
-
-              <section class="card education">
-                <h2>學歷</h2>
-                <div class="education-grid">
-                  <article>
-                    <h3>明志科技大學</h3>
-                    <p>經營管理系 四技畢業</p>
-                    <time datetime="2014-06">2014 / 06</time>
-                  </article>
-                  <article>
-                    <h3>前端網頁工程師養成班</h3>
-                    <p>（職訓班結業）</p>
-                    <time datetime="2026-06-30">2026 / 06 / 30</time>
-                  </article>
-                </div>
-              </section>
+        <footer class="footer-card">
+          <img :src="footerBotanicalUrl" alt="" class="footer-botanical" aria-hidden="true" />
+          <div class="footer-message">
+            <span class="footer-label">Explore My Work</span>
+            <p>從需求理解到介面實作，<br>每一份作品都是持續學習與改善的紀錄。</p>
+            <small>歡迎掃描 QR Code，查看完整作品與互動 Demo。</small>
+          </div>
+          <div class="qr-group">
+            <div class="qr-item">
+              <a class="portfolio-qr-card" :href="portfolioUrl" target="_blank" rel="noopener noreferrer"
+                aria-label="掃描或開啟 Scarlett Yu 的作品集網站">
+                <img :src="portfolioQrUrl" alt="作品集網站 QR Code" class="qr-code" />
+                <span>
+                  <strong>作品集 Portfolio</strong>
+                  <small>SCAN TO VIEW</small>
+                </span>
+              </a>
             </div>
           </div>
-
-          <footer class="footer-card">
-            <p>持續學習，持續實作，<br>期待用更好的使用者體驗創造價值。</p>
-            <div class="qr-group">
-              <a class="qr-item" :href="portfolioUrl" target="_blank" rel="noopener noreferrer"
-                aria-label="掃描或開啟 Scarlett Yu 的作品集網站">
-                <span>作品集 Portfolio</span>
-                <img :src="portfolioQrUrl" alt="作品集網站 QR Code" class="qr-code" />
-                <small>掃碼查看作品 Demo</small>
-              </a>
-              <a class="qr-item" :href="githubUrl" target="_blank" rel="noopener noreferrer"
-                aria-label="掃描或開啟 Scarlett-Terra 的 GitHub">
-                <span>程式碼 GitHub</span>
-                <img :src="githubQrUrl" alt="GitHub QR Code" class="qr-code" />
-                <small>掃碼查看原始碼</small>
-              </a>
-            </div>
-          </footer>
-        </main>
+        </footer>
+      </main>
     </section>
   </div>
 </template>
 
 <script setup>
-const resumePdfUrl = `${import.meta.env.BASE_URL}resume.pdf`
+import SvgIcon from '../components/SvgIcon.vue'
+import { iconPaths } from '../data/icons'
+
+const resumePdfUrl = `${import.meta.env.BASE_URL}resume-2.pdf`
 const profilePhotoUrl = `${import.meta.env.BASE_URL}images/profile/resume-photo.jpg`
+const footerBotanicalUrl = `${import.meta.env.BASE_URL}images/profile/footer-botanical-soft.png`
 const portfolioQrUrl = `${import.meta.env.BASE_URL}qr/portfolio-demo-home.png`
-const githubQrUrl = `${import.meta.env.BASE_URL}qr/portfolio-github.png`
 const portfolioUrl = 'https://scarlett-terra.github.io/vue3-portfolio-website/'
-const githubUrl = 'https://github.com/Scarlett-Terra/vue3-portfolio-website'
 </script>
 
 <style scoped>
@@ -183,6 +182,14 @@ const githubUrl = 'https://github.com/Scarlett-Terra/vue3-portfolio-website'
   color: var(--ink);
   padding-bottom: clamp(4rem, 8vw, 7rem);
   font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+  /* Footer grass: adjust these values and save to preview instantly. */
+  --grass-opacity: 0.48;
+  --grass-small-opacity: 0.3;
+  --grass-saturation: 1.65;
+  --grass-contrast: 1.18;
+  --grass-height: 158%;
+  --grass-bottom: -27%;
 }
 
 .resume-header {
@@ -445,19 +452,18 @@ h3 {
   text-underline-offset: 3px;
 }
 
-.github-icon,
-.contact-icon {
+.contact-svg {
   flex: 0 0 20px;
   width: 20px;
   height: 20px;
 }
 
 .github-icon {
-  fill: #171515;
+  color: #171515;
 }
 
 .location-icon {
-  fill: var(--purple);
+  color: var(--purple);
 }
 
 .contact-text {
@@ -661,58 +667,125 @@ h3 {
 }
 
 .footer-card {
+  position: relative;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
+  gap: 36px;
   margin-top: 18px;
-  padding: 14px 42px;
-  background: rgba(231, 224, 244, 0.88);
+  padding: 24px 34px 42px;
+  overflow: hidden;
+  background: linear-gradient(120deg, rgba(231, 224, 244, 0.94), rgba(247, 244, 251, 0.96));
 }
 
-.footer-card>p {
+.footer-message,
+.qr-group {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-message {
+  min-width: 0;
+}
+
+.footer-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--purple-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.footer-message p {
   margin: 0;
   color: var(--purple);
-  font-size: 1.6rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+}
+
+.footer-message small {
+  display: block;
+  margin-top: 8px;
+  color: #6f6788;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.portfolio-qr-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px 10px 10px;
+  border: 1px solid rgba(52, 44, 120, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--purple);
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(52, 44, 120, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-qr-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(52, 44, 120, 0.13);
 }
 
 .qr-group {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  min-height: 104px;
+  place-items: center;
+}
+
+.footer-botanical {
+  position: absolute;
+  z-index: 0;
+  right: -3%;
+  bottom: -15%;
+  left: 0;
+  width: 106%;
+  height: auto;
+  filter: saturate(1.45) contrast(1.12);
+  opacity: 0.62;
+  pointer-events: none;
+  user-select: none;
+  padding: 2px 281px;
 }
 
 .qr-item {
   display: grid;
+  position: relative;
+  z-index: 1;
   justify-items: center;
-  padding: 4px 12px;
-  color: var(--purple);
-  font-weight: 700;
-  text-align: center;
-}
-
-.qr-item+.qr-item {
-  border-left: 1px solid #8e86a8;
 }
 
 .qr-code {
   display: block;
-  width: 112px;
+  width: 106px;
   aspect-ratio: 1;
-  margin-top: 7px;
-  border: 5px solid #fff;
-  border-radius: 10px;
+  border: 4px solid #fff;
+  border-radius: 9px;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(52, 44, 120, 0.12);
 }
 
-.qr-item small {
-  margin-top: 5px;
+.portfolio-qr-card span {
+  display: grid;
+  gap: 4px;
+  min-width: 116px;
+}
+
+.portfolio-qr-card strong {
+  font-size: 0.95rem;
+}
+
+.portfolio-qr-card small {
   color: #6f6788;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
 @media (max-width: 860px) {
@@ -810,7 +883,35 @@ h3 {
 
   .footer-card {
     gap: 20px;
-    padding: 24px 18px;
+    padding: 24px 18px 38px;
+  }
+
+  .footer-message {
+    text-align: center;
+  }
+
+  .portfolio-qr-card {
+    justify-self: center;
+  }
+
+  .qr-group {
+    width: min(100%, 310px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-botanical {
+    display: none;
+  }
+
+  .portfolio-qr-card {
+    width: 100%;
+    padding-right: 12px;
+  }
+
+  .qr-code {
+    width: 88px;
   }
 }
 
@@ -899,8 +1000,8 @@ h3 {
   }
 
   .footer-card {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
   }
 
   .sidebar,
@@ -968,21 +1069,30 @@ h3 {
 
   .footer-card {
     margin-top: 18px;
-    padding: 14px 42px;
+    padding: 18px 30px;
   }
 
-  .footer-card>p {
-    font-size: 1.6rem;
+  .footer-botanical {
+    bottom: -24%;
+    opacity: 0.46;
+  }
+
+  .footer-message p {
+    font-size: 1.25rem;
   }
 
   .qr-code {
-    width: 112px;
+    width: 104px;
     border-width: 4px;
     box-shadow: none;
   }
 
-  .qr-item small {
-    font-size: 0.78rem;
+  .portfolio-qr-card {
+    box-shadow: none;
+  }
+
+  .portfolio-qr-card small {
+    font-size: 0.65rem;
   }
 
   .card,

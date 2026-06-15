@@ -14,12 +14,14 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="響應式網頁與程式碼示意圖">
+        <div class="hero-visual" aria-label="個人作品響應式畫面輪播">
           <div class="browser-card">
-            <div class="browser-bar"><i></i><i></i><i></i><span>travel-explore.vue</span></div>
+            <div class="browser-bar"><i></i><i></i><i></i><span>{{ heroProject.id }}.vue</span></div>
             <div class="browser-image">
-              <img :src="heroProject.image" :alt="`${heroProject.title}畫面示意`" />
-              <div class="browser-title">探索世界的美好</div>
+              <Transition name="hero-image-fade" mode="out-in">
+                <img :key="heroProject.id" :src="heroProject.image" :alt="`${heroProject.title}畫面示意`" />
+              </Transition>
+              <div class="browser-title">{{ heroProject.title }}</div>
             </div>
             <div class="browser-content">
               <span><b>景點探索</b><small>依主題快速瀏覽</small></span>
@@ -29,10 +31,19 @@
           </div>
           <div class="mobile-card">
             <div class="mobile-speaker"></div>
-            <img :src="heroProject.image" :alt="`${heroProject.title}手機版示意`" />
-            <strong>旅行靈感</strong>
-            <span>精選目的地</span>
-            <span>隨時探索行程</span>
+            <div class="mobile-image-frame">
+              <Transition name="hero-image-fade" mode="out-in">
+                <img :key="heroProject.id" :src="heroProject.image" :alt="`${heroProject.title}手機版示意`" />
+              </Transition>
+            </div>
+            <strong>{{ heroProject.title }}</strong>
+            <span>{{ heroProject.type }}</span>
+            <span>{{ heroProject.year }}</span>
+          </div>
+          <div class="carousel-dots" aria-label="選擇首頁展示作品">
+            <button v-for="(project, index) in heroProjects" :key="project.id" type="button"
+              :class="{ active: index === heroProjectIndex }" :aria-label="`顯示作品：${project.title}`"
+              :aria-current="index === heroProjectIndex ? 'true' : undefined" @click="showHeroProject(index)"></button>
           </div>
           <div class="visual-tags"><span>Vue 3</span><span>Component API</span><span>RWD</span><span>UI/UX</span></div>
         </div>
@@ -70,10 +81,54 @@
 </template>
 
 <script setup>
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { projects } from '../data/projects'
 
-const heroProject = projects[0]
+const heroProjects = projects.filter(project => project.image && !project.isGallery).slice(0, 6)
+const heroProjectIndex = ref(0)
+const heroProject = computed(() => heroProjects[heroProjectIndex.value])
+const HERO_CAROUSEL_INTERVAL = 4500
+let heroCarouselTimer
+
+const pauseHeroCarousel = () => {
+  window.clearInterval(heroCarouselTimer)
+  heroCarouselTimer = undefined
+}
+
+const startHeroCarousel = () => {
+  pauseHeroCarousel()
+
+  if (document.hidden || heroProjects.length < 2) return
+
+  heroCarouselTimer = window.setInterval(() => {
+    heroProjectIndex.value = (heroProjectIndex.value + 1) % heroProjects.length
+  }, HERO_CAROUSEL_INTERVAL)
+}
+
+const showHeroProject = (index) => {
+  heroProjectIndex.value = index
+  startHeroCarousel()
+}
+
+const handleVisibilityChange = () => {
+  if (document.hidden) pauseHeroCarousel()
+  else startHeroCarousel()
+}
+
+onMounted(() => {
+  heroProjects.forEach(project => {
+    const image = new Image()
+    image.src = project.image
+  })
+  document.addEventListener('visibilitychange', handleVisibilityChange)
+  startHeroCarousel()
+})
+
+onBeforeUnmount(() => {
+  pauseHeroCarousel()
+  document.removeEventListener('visibilitychange', handleVisibilityChange)
+})
 
 const problemSolving = [
   { title: '遇到的問題', text: '先重現問題並縮小範圍，不急著直接改程式。' },
@@ -287,14 +342,32 @@ const problemSolving = [
 }
 
 .browser-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(.72);
 }
 
+.hero-image-fade-enter-active,
+.hero-image-fade-leave-active {
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+.hero-image-fade-enter-from {
+  opacity: 0;
+  transform: scale(1.025);
+}
+
+.hero-image-fade-leave-to {
+  opacity: 0;
+  transform: scale(.985);
+}
+
 .browser-title {
   position: absolute;
+  z-index: 1;
   left: 1.25rem;
   bottom: 1.2rem;
   color: #fff;
@@ -367,10 +440,20 @@ const problemSolving = [
   background: #cbd5e1;
 }
 
-.mobile-card img {
+.mobile-image-frame {
+  position: relative;
   width: 100%;
   height: 150px;
   border-radius: 15px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.mobile-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -401,6 +484,36 @@ const problemSolving = [
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: .45rem;
+}
+
+.carousel-dots {
+  position: absolute;
+  right: 84px;
+  bottom: 29px;
+  z-index: 3;
+  display: flex;
+  gap: 7px;
+}
+
+.carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: width .25s ease, background-color .25s ease;
+}
+
+.carousel-dots button.active {
+  width: 24px;
+  background: #4f46e5;
+}
+
+.carousel-dots button:focus-visible {
+  outline: 3px solid rgb(249 115 22 / 45%);
+  outline-offset: 3px;
 }
 
 .visual-tags span {
@@ -766,6 +879,7 @@ const problemSolving = [
   font-weight: 750;
   text-decoration: none;
 }
+
 .contact-links a:hover {
   color: #c2410c;
   border: 1px solid #c2410c;
@@ -776,6 +890,7 @@ const problemSolving = [
   background: #1e1b4b;
   color: #fff;
 }
+
 .contact-links a:first-child:hover {
   color: #fff;
   background: #c2410c;
@@ -859,6 +974,11 @@ const problemSolving = [
   .visual-tags {
     bottom: 6px;
     max-width: calc(100% - 140px);
+  }
+
+  .carousel-dots {
+    right: 84px;
+    bottom: 38px;
   }
 
   .metrics-grid,
@@ -954,7 +1074,7 @@ const problemSolving = [
     border-radius: 20px;
   }
 
-  .mobile-card img {
+  .mobile-image-frame {
     height: 120px;
     border-radius: 12px;
   }
@@ -977,6 +1097,11 @@ const problemSolving = [
     gap: .3rem;
   }
 
+  .carousel-dots {
+    right: 0;
+    bottom: 38px;
+  }
+
   .visual-tags span {
     padding: .3rem .48rem;
     font-size: .56rem;
@@ -997,9 +1122,16 @@ const problemSolving = [
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .hero-layout::before,
   .hero-layout::after {
     animation: none;
+  }
+
+  .hero-image-fade-enter-active,
+  .hero-image-fade-leave-active,
+  .carousel-dots button {
+    transition: none;
   }
 }
 </style>
