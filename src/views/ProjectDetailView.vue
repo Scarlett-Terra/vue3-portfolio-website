@@ -1,7 +1,6 @@
 <template>
     <div class="project-detail-page page-shell">
 
-
         <div class="detail-container" v-if="currentProject">
 
             <div class="banner-wrapper" v-if="!currentProject.isGallery"
@@ -42,8 +41,32 @@
                     {{ link.label }}
                 </a>
             </div>
-        </div>
 
+            <div class="custom-detail-content"
+                v-if="currentProject && currentProject.id === 'qingshui-military-village'">
+                <hr class="section-divider" />
+
+                <div class="detail-section">
+                    <h3 class="section-subtitle">📌 核心功能開發</h3>
+                    <div class="features-grid">
+                        <div v-for="item in currentProject.detailedFeatures" :key="item.title" class="feature-card">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3 class="section-subtitle">💡 個人開發亮點</h3>
+                    <div class="highlights-list">
+                        <div v-for="item in currentProject.highlights" :key="item.title" class="highlight-item">
+                            <strong>{{ item.title }}</strong>：{{ item.desc }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <div v-else class="not-found">
             <p>😢 找不到該作品的詳細資料</p>
         </div>
@@ -142,6 +165,23 @@ const goBack = () => {
 </script>
 
 <style scoped>
+.highlight-item {
+    margin-bottom: 10px;
+}
+
+.features-grid h4 {
+    margin: 0;
+}
+
+.features-grid p {
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.section-subtitle {
+    color: #eb6315;
+}
+
 /* 回到作品列表按鈕 */
 .back-btn {
     background: #031682;

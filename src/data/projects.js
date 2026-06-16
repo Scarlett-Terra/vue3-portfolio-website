@@ -2,15 +2,64 @@ const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, 
 
 export const projects = [
   {
+    id: 'qingshui-military-village',
+    order: 1, // 挪到第一個作品
+    title: '清水眷村文化園區 官方導覽網站',
+    type: 'Vue 3 Web Application (5人團隊合作)',
+    year: '2026-June',
+    description: '基於 Vue 3 開發的文化園區數位導覽系統，整合文史典藏即時搜尋、互動式交通指南與清晰的常見問題集。',
+
+    // 外層卡片展示：只放你真正做完的三大強項
+    features: ['關鍵字搜尋引擎', '交通分流指南', 'FAQ下拉折疊面板'],
+
+    // 內層詳細頁展示：對應你做的三個區塊詳細技術描述
+    detailedFeatures: [
+      {
+        title: '關鍵字與標籤搜尋引擎',
+        desc: '規劃園區歷史文物與照片的資料庫結構，實作複合式條件即時過濾。使用者輸入關鍵字或點選分類時，網頁不需重新整理即可在一秒內動態渲染正確的搜尋結果。'
+      },
+      {
+        title: '多方向互動交通指南',
+        desc: '針對開車、大眾運輸等不同出遊族群設計按鈕精準分流。實作點擊按鈕自動平滑滾動定位至對應路途關鍵字的功能，優化網頁長文字的閱讀體驗。'
+      },
+      {
+        title: 'FAQ 常見問題折疊面板',
+        desc: '獨立開發下拉式折疊面板組件，初始狀態隱藏繁雜內文，點擊題目後答案才流暢向下滑動展開，打造清爽明瞭的閱讀介面。'
+      }
+    ],
+
+    // 你的個人開發亮點
+    highlights: [
+      {
+        title: '獨立通用組件開發（Independent Components）',
+        desc: '將交通指南與 FAQ 的展開機制獨立封裝為功能模組，降低元件間的耦合度，提升程式碼的複用性與未來的維護彈性。'
+      },
+      {
+        title: '跨領域專案企劃與落實',
+        desc: '專案前期深度參與團隊的內容架構梳理，負責將抽象的企劃思維與斷點規劃，完美轉譯為前端 RWD 響應式網頁程式碼。'
+      }
+    ],
+
+    detailDescription: '在此 5 人團隊專案中，兼任前端開發與企劃。前期跨足網頁架構與內容梳理，中後期獨立負責「關鍵字搜尋引擎、交通分流指南、FAQ折疊面板」三大核心功能模組之開發。運用 Vue 3 Composition API 管理資料狀態，將獨立功能封裝為複用性組件，並全面落實跨裝置 RWD 彈性佈局。',
+    image: publicAsset('images/projects/qs-culture.jpg'), // 💡 老師備註：有眷村新圖再換掉
+    technologies: ['Vue.js', 'Vue Router', 'JavaScript', 'SCSS', 'HTML', 'RWD'],
+    github: 'https://github.com/Digi-Pack/NCHU-11503-QingshuiArtvillage', // 💡 老師備註：記得換成眷村的 GitHub 庫
+    demo: '#',   // 💡 老師備註：記得換成眷村的 Demo 網址
+    hasDetailPage: true,
+    demoLinks: [
+      { label: '開啟清水眷村導覽', url: '#' },
+    ],
+  }
+  ,
+  {
     id: 'city-tour-guide',
-    order: 1,
+    order: 2,
     title: 'Vue 3 城市深度旅遊導覽',
     type: 'Vue 3 Application',
     year: '2026-June',
     description: '依照旅遊區域與城市瀏覽景點、美食及圖像內容的 Vue 3 多頁導覽網站。',
     features: ['城市分類導覽', '景點與美食篩選', '景點詳細頁'],
-    detailDescription:
-      '使用 Vue 3、Vue Router 與 Composition API 建立城市旅遊導覽，收錄東南亞、澳洲及歐美城市，可依景點或美食分類瀏覽，並進入詳細頁查看介紹與圖片相簿。',
+    detailDescription: '依照旅遊區域與城市瀏覽景點、美食及圖像內容的 Vue 3 多頁導覽網站。',
     image: publicAsset('images/projects/city-tour.jpg'),
     technologies: ['Vue.js', 'Vue Router', 'JavaScript', 'HTML', 'CSS', 'RWD'],
     github: 'https://github.com/Scarlett-Terra/city-tour-guide',
@@ -22,7 +71,7 @@ export const projects = [
   },
   {
     id: 'cart-app',
-    order: 2,
+    order: 3,
     title: '床墊傢俱購物車',
     type: 'Frontend Practice',
     year: '2025-Sep',
@@ -31,7 +80,7 @@ export const projects = [
     detailDescription:
       '床墊傢俱購物車專案包含前台商品列表、加入購物車、數量與價格計算，以及後台訂單資料管理，練習使用 JavaScript 整理互動流程與資料狀態。',
     image: publicAsset('images/projects/Furniture-Shopping-Cart.jpg'),
-    technologies: ['JavaScript', 'CSS', 'HTML','Axios','串接 API'],
+    technologies: ['JavaScript', 'CSS', 'HTML', 'Axios', '串接 API'],
     github: 'https://github.com/Scarlett-Terra/JS_Project_20251122',
     demo: 'https://scarlett-terra.github.io/JS_Project_20251122/apiEight.html',
     hasDetailPage: true,
@@ -43,7 +92,7 @@ export const projects = [
   },
   {
     id: 'vue-favorites-tracker',
-    order: 3,
+    order: 4,
     title: 'Vue 3 我的收藏祕密花園',
     type: 'Vue 3 Practice',
     year: '2026-June',
@@ -58,7 +107,7 @@ export const projects = [
   },
   {
     id: 'course-shopping-cart',
-    order: 4,
+    order: 5,
     title: '墨香書咖啡網站',
     type: 'JavaScript Practice',
     year: '2026-May',
@@ -73,7 +122,7 @@ export const projects = [
   },
   {
     id: 'taiwan-weather-checker',
-    order: 5,
+    order: 6,
     title: '台灣縣市氣象查詢站',
     type: 'JavaScript Practice',
     year: '2026-May',
@@ -81,14 +130,14 @@ export const projects = [
     features: ['縣市查詢', '資料呈現', '條件篩選'],
     detailDescription: '透過台灣縣市選擇介面練習資料查找、條件篩選與氣象結果的動態呈現。',
     image: publicAsset('images/projects/taiwan-city.jpg'),
-    technologies: ['JavaScript', 'HTML', 'CSS','串接 API'],
+    technologies: ['JavaScript', 'HTML', 'CSS', '串接 API'],
     github: 'https://github.com/Scarlett-Terra/Chung-Hsing-University-Front-end-Technology-Course/tree/main/13_JS-taiwan-weather-checker',
     demo: 'https://scarlett-terra.github.io/Chung-Hsing-University-Front-end-Technology-Course/13_JS-taiwan-weather-checker/weater-check.html',
     hasDetailPage: true,
   },
   {
     id: 'dormitory-system',
-    order: 6,
+    order: 7,
     title: '宿舍管理系統',
     type: 'JavaScript Practice',
     year: '2026-May',
@@ -103,7 +152,7 @@ export const projects = [
   },
   {
     id: 'travel-ticket-manager',
-    order: 7,
+    order: 8,
     title: '旅遊套票篩選與管理練習',
     type: 'JavaScript Practice',
     year: '2025-Sep',
@@ -122,7 +171,7 @@ export const projects = [
   },
   {
     id: 'blog-card',
-    order: 8,
+    order: 9,
     title: 'Blog部落格卡片',
     type: 'Frontend Practice',
     year: '2025-July',
@@ -138,7 +187,7 @@ export const projects = [
   },
   {
     id: 'microsoft-web',
-    order: 9,
+    order: 10,
     title: 'Microsoft 切版網頁',
     type: 'Web Layout Practice',
     year: '2026-April',
@@ -154,7 +203,7 @@ export const projects = [
   },
   {
     id: 'facebook-layout',
-    order: 10,
+    order: 11,
     title: 'Facebook 基礎仿切',
     type: 'UI / CSS Practice',
     year: '2026-April',
@@ -169,7 +218,7 @@ export const projects = [
   },
   {
     id: 'vh-hero-page',
-    order: 11,
+    order: 12,
     title: 'VH 視覺首頁',
     type: 'UI / CSS Practice',
     year: '2026-April',
@@ -184,7 +233,7 @@ export const projects = [
   },
   {
     id: 'parallax-text-shadow',
-    order: 12,
+    order: 13,
     title: '視差與文字陰影',
     type: 'UI / CSS Practice',
     year: '2026-April',
@@ -199,7 +248,7 @@ export const projects = [
   },
   {
     id: 'flex-layout-practice',
-    order: 13,
+    order: 14,
     title: 'Flex 響應式排版練習',
     type: 'UI / CSS Practice',
     year: '2026-April',
@@ -214,7 +263,7 @@ export const projects = [
   },
   {
     id: 'hamburger-menu',
-    order: 14,
+    order: 15,
     title: '漢堡選單互動',
     type: 'UI / CSS Practice',
     year: '2026-April',
@@ -233,7 +282,7 @@ export const projects = [
   },
   {
     id: 'css-animation-effects',
-    order: 15,
+    order: 16,
     title: 'CSS 改顏色變化',
     type: 'UI / CSS Practice',
     year: '2026-April',
@@ -248,7 +297,7 @@ export const projects = [
   },
   {
     id: 'javascript-homework',
-    order: 16,
+    order: 17,
     title: ' JS前端實戰作業練習',
     type: 'JavaScript Practice',
     year: '2026-May',
@@ -263,7 +312,7 @@ export const projects = [
   },
   {
     id: 'military-check-system',
-    order: 17,
+    order: 18,
     title: '軍事役別判斷系統',
     type: 'JavaScript Practice',
     year: '2026-May',
@@ -278,7 +327,7 @@ export const projects = [
   },
   {
     id: 'memorandum-app',
-    order: 18,
+    order: 19,
     title: 'Memo小型筆記備忘錄',
     type: 'JavaScript Practice',
     year: '2026-May',
@@ -291,10 +340,10 @@ export const projects = [
     demo: 'https://scarlett-terra.github.io/Chung-Hsing-University-Front-end-Technology-Course/11_JS-memorandum/memo.html',
     hasDetailPage: true,
   },
-  
+
   {
     id: 'vue-member-card',
-    order: 19,
+    order: 20,
     title: 'Vue 3 會員資料小卡產生器',
     type: 'Vue 3 Practice',
     year: '2026-June',
@@ -309,7 +358,7 @@ export const projects = [
   },
   {
     id: 'vue-calculator-series',
-    order: 20,
+    order: 21,
     title: 'Vue 3 計算機系列',
     type: 'Vue 3 Practice',
     year: '2026-June',
@@ -328,7 +377,7 @@ export const projects = [
   },
   {
     id: 'ps-gallery',
-    order: 21,
+    order: 22,
     title: 'Photoshop 視覺設計合集',
     type: 'Visual Design',
     year: '2026-May',
@@ -353,7 +402,7 @@ export const projects = [
   },
   {
     id: 'ai-gallery',
-    order: 22,
+    order: 23,
     title: 'Illustrator 向量圖、AI 生成圖合集',
     type: 'Illustration',
     year: '2026-May',
@@ -371,12 +420,7 @@ export const projects = [
       { id: 'ai-09', thumbnail: publicAsset('images/illustrator/ai-09-gemini-AI-Q-girl.png'), full: publicAsset('images/illustrator/ai-09-gemini-AI-Q-girl.png'), alt: 'Gemini AI Q 版女孩生成圖' },
       { id: 'ai-08', thumbnail: publicAsset('images/illustrator/ai-08-pen-drawing.jpg'), full: publicAsset('images/illustrator/ai-08-pen-drawing.jpg'), alt: '鋼筆工具向量繪圖' },
       { id: 'ai-07', thumbnail: publicAsset('images/illustrator/ai-07-creative-design-of-high-rise-buildings.jpg'), full: publicAsset('images/illustrator/ai-07-creative-design-of-high-rise-buildings.jpg'), alt: '高樓建築創意設計' },
-      { id: 'ai-06', thumbnail: publicAsset('images/illustrator/ai-06-final-version-of-the-geometric-shape.jpg'), full: publicAsset('images/illustrator/ai-06-final-version-of-the-geometric-shape.jpg'), alt: '幾何造型完稿' },
-      { id: 'ai-05', thumbnail: publicAsset('images/illustrator/ai-05-beginner-in-geometry.jpg'), full: publicAsset('images/illustrator/ai-05-beginner-in-geometry.jpg'), alt: '幾何圖形入門練習' },
-      { id: 'ai-04', thumbnail: publicAsset('images/illustrator/ai-04-moon-sketch.jpg'), full: publicAsset('images/illustrator/ai-04-moon-sketch.jpg'), alt: '月亮草圖' },
       { id: 'ai-03', thumbnail: publicAsset('images/illustrator/ai-03-moon-and-starry-sky.jpg'), full: publicAsset('images/illustrator/ai-03-moon-and-starry-sky.jpg'), alt: '月亮與星空插畫' },
-      { id: 'ai-02', thumbnail: publicAsset('images/illustrator/ai-02-myName.jpg'), full: publicAsset('images/illustrator/ai-02-myName.jpg'), alt: '姓名文字設計' },
-      { id: 'ai-01', thumbnail: publicAsset('images/illustrator/ai-01-umbrella.png'), full: publicAsset('images/illustrator/ai-01-umbrella.png'), alt: '雨傘向量圖示' },
     ],
   },
 ]
