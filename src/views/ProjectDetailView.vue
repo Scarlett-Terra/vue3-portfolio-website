@@ -1,6 +1,6 @@
 <template>
     <div class="project-detail-page page-shell">
-        
+
 
         <div class="detail-container" v-if="currentProject">
 
@@ -8,10 +8,10 @@
                 :style="{ '--banner-image': `url(${currentProject.image})` }">
                 <img :src="currentProject.image" class="detail-banner" :alt="currentProject.title" />
             </div>
-            
+
             <div class="design-gallery" v-else>
-                <button v-for="(img, index) in currentProject.images" :key="img.id" type="button"
-                    class="gallery-item" :aria-label="`放大查看：${img.alt}`" @click="openLightbox(index)">
+                <button v-for="(img, index) in currentProject.images" :key="img.id" type="button" class="gallery-item"
+                    :aria-label="`放大查看：${img.alt}`" @click="openLightbox(index)">
                     <img :src="img.thumbnail" :alt="img.alt" loading="lazy" />
                     <div class="gallery-overlay">
                         <span>點擊放大</span>
@@ -29,9 +29,10 @@
 
             <p class="detail-desc">{{ currentProject.detailDescription }}</p>
 
-            <div class="action-links" v-if="!currentProject.isGallery && (currentProject.github || projectDemoLinks.length)">
-                <a v-if="currentProject.github" :href="currentProject.github" target="_blank"
-                    rel="noopener noreferrer" class="link-btn github-btn">
+            <div class="action-links"
+                v-if="!currentProject.isGallery && (currentProject.github || projectDemoLinks.length)">
+                <a v-if="currentProject.github" :href="currentProject.github" target="_blank" rel="noopener noreferrer"
+                    class="link-btn github-btn">
                     <SvgIcon :path="iconPaths.github" />
                     GitHub 連結
                 </a>
@@ -232,13 +233,13 @@ const goBack = () => {
 }
 
 .tag {
-    background: #f1f5f9;
-    color: #475569;
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    border: 1px solid #e2e8f0;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #fed7aa;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #9a3412;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .detail-desc {

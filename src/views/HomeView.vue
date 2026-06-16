@@ -3,8 +3,8 @@
     <section class="hero-section">
       <div class="home-container hero-layout">
         <div class="hero-copy">
-          <p class="section-kicker">Frontend × Visual Design</p>
-          <h1>將視覺設計，<br />轉化為真正好用的<br /><span>網頁體驗。</span></h1>
+          <p class="section-kicker">Frontend · Visual Design</p>
+          <h1>將視覺設計<br />轉化為真正好用的<br /><span>網頁體驗</span></h1>
           <p class="hero-description">
             專注於 Vue 3、響應式版面與互動細節，從需求拆解到介面實作，持續打造清楚、易用且具視覺層次的產品。
           </p>
@@ -17,8 +17,8 @@
         <div class="hero-visual" aria-label="個人作品響應式畫面輪播">
           <div class="browser-card">
             <div class="browser-bar"><i></i><i></i><i></i><span>{{ heroProject.id }}.vue</span></div>
-            <div class="browser-image" :style="{ backgroundImage: `url(${heroProject.image})` }">
-              <Transition name="hero-image-fade">
+            <div class="browser-image">
+              <Transition name="hero-image-fade" mode="out-in">
                 <img :key="heroProject.id" :src="heroProject.image" :alt="`${heroProject.title}畫面示意`" />
               </Transition>
               <div class="browser-title">{{ heroProject.title }}</div>
@@ -31,8 +31,8 @@
           </div>
           <div class="mobile-card">
             <div class="mobile-speaker"></div>
-            <div class="mobile-image-frame" :style="{ backgroundImage: `url(${heroProject.image})` }">
-              <Transition name="hero-image-fade">
+            <div class="mobile-image-frame">
+              <Transition name="hero-image-fade" mode="out-in">
                 <img :key="heroProject.id" :src="heroProject.image" :alt="`${heroProject.title}手機版示意`" />
               </Transition>
             </div>
@@ -57,8 +57,14 @@
           <h2>期待與優秀的團隊共同成長</h2>
           <p class="contact-description">如果你正在尋找願意持續學習、重視介面細節與使用者體驗的前端夥伴，歡迎與我聯繫。</p>
         </div>
-        <div class="contact-links"><a href="mailto:asdqwe1456321@email.com">Email 聯絡</a><a href="https://github.com"
-            target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+        <div class="contact-links">
+          <button @click="copyEmail" class="email-trigger-btn">
+            {{ isCopied ? '信箱已複製！' : 'Email 聯絡' }}
+          </button>
+
+          <a href="https://github.com/Scarlett-Terra/vue3-portfolio-website" target="_blank"
+            rel="noopener noreferrer">GitHub ↗</a>
+        </div>
       </div>
     </section>
 
@@ -135,9 +141,75 @@ const problemSolving = [
   { title: '我的判斷', text: '檢查資料流、元件責任與 CSS 規則的來源。' },
   { title: '改善結果', text: '修正後重新編譯、測試，並整理成可重用的做法。' },
 ]
+
+
+// 1. 填入你的真實 Email
+const myEmail = 'asdqwe1456321@email.com'
+
+// 2. 控制文字切換的響應式變數
+const isCopied = ref(false)
+
+// 3. 複製邏輯
+const copyEmail = async () => {
+  try {
+    // 執行複製到剪貼簿
+    await navigator.clipboard.writeText(myEmail)
+
+    // 切換文字狀態
+    isCopied.value = true
+
+    // 2 秒後恢復原狀
+    setTimeout(() => {
+      isCopied.value = false
+    }, 2000)
+
+  } catch (err) {
+    console.error('無法複製', err)
+    // 萬一瀏覽器不支援，至少讓主管知道你的 Email
+    alert('複製失敗，我的信箱是：' + myEmail)
+  }
+}
 </script>
 
 <style scoped>
+.email-trigger-btn {
+  /* 1. 移除按鈕預設樣式 */
+  appearance: none;
+  border: none;
+  outline: none;
+
+  /* 2. 套用你原本深藍色的背景與文字顏色 */
+  background-color: #2b2b4b;
+  /* 請根據你原本的色號調整 */
+  color: white;
+
+  /* 3. 設定形狀與間距（參考你原本的設計） */
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+
+  /* 4. 讓切換文字時有平滑感 */
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-trigger-btn:hover {
+  background-color: #3f3f6e;
+  /* 滑鼠移上去稍微變亮，增加互動感 */
+}
+
+/* 如果是「已複製」狀態，可以換個顏色（例如變綠色或稍微透明） */
+.email-trigger-btn:active {
+  transform: scale(0.95);
+  /* 點擊時縮小的效果 */
+}
+
+
+
 .home-page {
   color: #1e293b;
 }
@@ -339,8 +411,6 @@ const problemSolving = [
   position: relative;
   height: 210px;
   overflow: hidden;
-  background-position: center;
-  background-size: cover;
 }
 
 .browser-image img {
@@ -449,8 +519,6 @@ const problemSolving = [
   border-radius: 15px;
   overflow: hidden;
   background: #e2e8f0;
-  background-position: center;
-  background-size: cover;
 }
 
 .mobile-card img {
