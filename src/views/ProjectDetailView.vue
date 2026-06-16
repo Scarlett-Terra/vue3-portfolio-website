@@ -36,7 +36,7 @@
                     GitHub 連結
                 </a>
                 <a v-for="link in projectDemoLinks" :key="link.url" :href="link.url" target="_blank"
-                    rel="noopener noreferrer" class="link-btn demo-btn">
+                    rel="noopener noreferrer" class="link-btn demo-btn" @click="handleDemoClick($event, link.url)">
                     <SvgIcon :path="iconPaths.externalLink" />
                     {{ link.label }}
                 </a>
@@ -162,6 +162,14 @@ const goBack = () => {
         router.push('/projects')
     }
 }
+
+const handleDemoClick = (event, url) => {
+    // 如果網址是 # 號，就攔截它，不讓它亂跳頁
+    if (url === '#') {
+        event.preventDefault(); // 阻止預設跳頁行為
+        alert('💡 本系統目前於本地端穩定運行中。\n此線上展示版因配合測試部署，近期即將正式上線，敬請期待！');
+    }
+};
 </script>
 
 <style scoped>
