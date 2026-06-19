@@ -43,12 +43,10 @@ export const projects = [
     detailDescription: '在此 5 人團隊專案中，兼任前端開發與企劃。前期跨足網頁架構與內容梳理，中後期獨立負責「關鍵字搜尋引擎、交通分流指南、FAQ折疊面板」三大核心功能模組之開發。運用 Vue 3 Composition API 管理資料狀態，將獨立功能封裝為複用性組件，並全面落實跨裝置 RWD 彈性佈局。',
     image: publicAsset('images/projects/qs-culture.jpg'), // 💡 老師備註：有眷村新圖再換掉
     technologies: ['Vue.js', 'Vue Router', 'JavaScript', 'SCSS', 'HTML', 'RWD'],
-    github: 'https://github.com/Digi-Pack/NCHU-11503-QingshuiArtvillage', // 💡 老師備註：記得換成眷村的 GitHub 庫
-    demo: '#',   // 💡 老師備註：記得換成眷村的 Demo 網址
+    github: '',
+    demo: '',
     hasDetailPage: true,
-    demoLinks: [
-      { label: '開啟清水眷村導覽', url: '#' },
-    ],
+    demoLinks: [],
   }
   ,
   {
