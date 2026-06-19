@@ -59,6 +59,38 @@ export const projects = [
     year: '2026-June',
     description: '依照旅遊區域與城市瀏覽景點、美食及圖像內容的 Vue 3 多頁導覽網站。',
     features: ['城市分類導覽', '景點與美食篩選', '景點詳細頁'],
+    detailedFeatures: [
+      {
+        title: '城市與區域分類',
+        desc: '依照不同城市與旅遊區域整理景點內容，讓使用者能快速切換目的地並瀏覽對應資訊。'
+      },
+      {
+        title: '景點與美食導覽',
+        desc: '將景點、美食與圖像內容整合在同一個導覽流程，降低使用者查找旅遊資訊的切換成本。'
+      },
+      {
+        title: '多頁路由瀏覽',
+        desc: '使用 Vue Router 建立列表與詳細頁，讓作品具備清楚的頁面層級與可分享的瀏覽路徑。'
+      },
+      {
+        title: '響應式版面',
+        desc: '依照桌機與手機瀏覽情境調整卡片、圖片與文字排列，維持旅遊資訊的閱讀舒適度。'
+      }
+    ],
+    highlights: [
+      {
+        title: '資料結構整理',
+        desc: '把城市、景點與美食資料拆成可維護的內容結構，讓畫面渲染與後續擴充更直覺。'
+      },
+      {
+        title: '導覽體驗設計',
+        desc: '以旅遊使用者的瀏覽順序規劃頁面，讓使用者能從城市總覽一路進入景點細節。'
+      },
+      {
+        title: 'Vue 路由整合',
+        desc: '練習將 Vue 3 元件與 Router 結合，完成較接近正式網站的多頁應用流程。'
+      }
+    ],
     detailDescription: '依照旅遊區域與城市瀏覽景點、美食及圖像內容的 Vue 3 多頁導覽網站。',
     image: publicAsset('images/projects/city-tour.jpg'),
     technologies: ['Vue.js', 'Vue Router', 'JavaScript', 'HTML', 'CSS', 'RWD'],
@@ -77,6 +109,38 @@ export const projects = [
     year: '2025-Sep',
     description: '包含前台商品瀏覽、購物車互動與後台訂單管理的 JavaScript 專案。',
     features: ['前台購物車', '訂單管理', '前後台介面'],
+    detailedFeatures: [
+      {
+        title: '商品列表',
+        desc: '顯示商品資訊與分類內容，讓使用者能快速瀏覽床墊與家具商品並進行選購。'
+      },
+      {
+        title: '加入購物車',
+        desc: '支援商品加入購物車、數量調整與價格即時計算，建立完整的前台購物互動。'
+      },
+      {
+        title: 'API 串接',
+        desc: '透過 Axios 串接商品與訂單資料，練習前端與遠端資料之間的讀取、更新與狀態同步。'
+      },
+      {
+        title: '訂單管理',
+        desc: '建立後台訂單列表與管理流程，讓管理者能查看訂單資料並維護處理狀態。'
+      }
+    ],
+    highlights: [
+      {
+        title: '購物車狀態同步',
+        desc: '數量變動時即時計算小計與總金額，讓畫面和購物車資料保持一致。'
+      },
+      {
+        title: 'API 串接優化',
+        desc: '整理 Axios 請求流程，將商品、購物車與訂單資料的操作拆成清楚步驟。'
+      },
+      {
+        title: 'LocalStorage 儲存',
+        desc: '保留購物車狀態，降低重新整理或切換頁面時資料遺失的風險。'
+      }
+    ],
     detailDescription:
       '床墊傢俱購物車專案包含前台商品列表、加入購物車、數量與價格計算，以及後台訂單資料管理，練習使用 JavaScript 整理互動流程與資料狀態。',
     image: publicAsset('images/projects/Furniture-Shopping-Cart.jpg'),
@@ -98,6 +162,38 @@ export const projects = [
     year: '2026-June',
     description: '以 Vue 3 CDN 製作收藏紀錄工具，整合新增、分類、統計與列表管理功能。',
     features: ['收藏紀錄', '分類統計', '列表管理'],
+    detailedFeatures: [
+      {
+        title: '收藏資料新增',
+        desc: '透過表單新增收藏項目，練習使用 Vue 3 狀態管理將輸入內容即時寫入列表。'
+      },
+      {
+        title: '分類統計',
+        desc: '依照收藏類型計算資料數量，讓使用者能快速理解目前收藏內容的分布。'
+      },
+      {
+        title: '列表管理',
+        desc: '將收藏項目整理成清楚的列表，支援瀏覽、檢視與後續擴充管理操作。'
+      },
+      {
+        title: '即時畫面更新',
+        desc: '使用 ref、computed 與 watch 讓輸入、統計與列表畫面保持同步更新。'
+      }
+    ],
+    highlights: [
+      {
+        title: 'Vue 3 狀態練習',
+        desc: '以 Composition API 管理收藏資料，熟悉資料變動後畫面自動更新的流程。'
+      },
+      {
+        title: 'Computed 統計邏輯',
+        desc: '將分類統計抽成 computed 計算，讓畫面能依資料內容即時反映結果。'
+      },
+      {
+        title: '小型工具完整流程',
+        desc: '從輸入、儲存、分類到列表呈現，完成一個具備實際使用情境的小工具。'
+      }
+    ],
     detailDescription: '使用 Vue 3 的 ref、computed 與 watch 管理收藏資料，並即時呈現分類統計與列表內容。',
     image: publicAsset('images/projects/secret-garden.jpg'),
     technologies: ['Vue.js', 'JavaScript', 'HTML', 'CSS'],

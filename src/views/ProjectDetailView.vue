@@ -42,25 +42,30 @@
                 </a>
             </div>
 
-            <div class="custom-detail-content"
-                v-if="currentProject && currentProject.id === 'qingshui-military-village'">
+            <div class="custom-detail-content" v-if="hasStructuredDetails">
                 <hr class="section-divider" />
 
-                <div class="detail-section">
-                    <h3 class="section-subtitle">📌 核心功能開發</h3>
+                <div class="detail-section" v-if="currentProject.detailedFeatures?.length">
+                    <h3 class="section-subtitle">核心功能</h3>
                     <div class="features-grid">
-                        <div v-for="item in currentProject.detailedFeatures" :key="item.title" class="feature-card">
+                        <div v-for="(item, index) in currentProject.detailedFeatures" :key="item.title"
+                            class="feature-card">
+                            <span class="feature-icon" aria-hidden="true">{{ index + 1 }}</span>
                             <h4>{{ item.title }}</h4>
                             <p>{{ item.desc }}</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="detail-section">
-                    <h3 class="section-subtitle">💡 個人開發亮點</h3>
+                <div class="detail-section" v-if="currentProject.highlights?.length">
+                    <h3 class="section-subtitle">開發亮點</h3>
                     <div class="highlights-list">
                         <div v-for="item in currentProject.highlights" :key="item.title" class="highlight-item">
-                            <strong>{{ item.title }}</strong>：{{ item.desc }}
+                            <span class="highlight-icon" aria-hidden="true"></span>
+                            <div>
+                                <strong>{{ item.title }}</strong>
+                                <p>{{ item.desc }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,6 +112,15 @@ const projectDemoLinks = computed(() => {
     if (!currentProject.value.demo) return []
 
     return [{ label: 'Demo 連結', url: currentProject.value.demo }]
+})
+
+const hasStructuredDetails = computed(() => {
+    if (!currentProject.value || currentProject.value.isGallery) return false
+
+    return Boolean(
+        currentProject.value.detailedFeatures?.length ||
+        currentProject.value.highlights?.length
+    )
 })
 
 // 🌟 新增：控制燈箱目前點開哪一張圖的變數
@@ -173,23 +187,6 @@ const handleDemoClick = (event, url) => {
 </script>
 
 <style scoped>
-.highlight-item {
-    margin-bottom: 10px;
-}
-
-.features-grid h4 {
-    margin: 0;
-}
-
-.features-grid p {
-    line-height: 1.5;
-    margin-top: 3px;
-}
-
-.section-subtitle {
-    color: #eb6315;
-}
-
 /* 回到作品列表按鈕 */
 .back-btn {
     background: #031682;
@@ -305,7 +302,7 @@ const handleDemoClick = (event, url) => {
     flex-wrap: wrap;
     gap: 1rem;
     border-top: 1px solid #f1f5f9;
-    padding-top: 2px;
+    padding-top: 1rem;
 }
 
 .link-btn {
@@ -346,6 +343,121 @@ const handleDemoClick = (event, url) => {
     text-align: center;
     padding: 3rem;
     color: #94a3b8;
+}
+
+.custom-detail-content {
+    margin-top: 2rem;
+}
+
+.section-divider {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 0 0 2rem;
+}
+
+.detail-section {
+    margin-top: 2rem;
+}
+
+.section-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0 0 1rem;
+    color: #102a63;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.section-subtitle::before {
+    width: 4px;
+    height: 1.15em;
+    border-radius: 999px;
+    background: #075eea;
+    content: "";
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.feature-card {
+    min-height: 190px;
+    padding: 1.35rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 8px 22px rgb(15 23 42 / 4%);
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-bottom: 1rem;
+    border-radius: 999px;
+    background: #eef5ff;
+    color: #075eea;
+    font-size: 1.35rem;
+    font-weight: 900;
+}
+
+.features-grid h4 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.features-grid p {
+    margin: 0.65rem 0 0;
+    color: #475569;
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.highlights-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.highlight-item {
+    display: flex;
+    gap: 0.9rem;
+    min-height: 118px;
+    padding: 1.15rem;
+    border-radius: 8px;
+    background: #f4f7ff;
+}
+
+.highlight-icon {
+    flex: 0 0 auto;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg, #dbeafe, #eff6ff);
+    border: 1px solid #bfdbfe;
+}
+
+.highlight-item strong {
+    display: block;
+    color: #102a63;
+    font-size: 0.98rem;
+    line-height: 1.4;
+}
+
+.highlight-item p {
+    margin: 0.35rem 0 0;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.65;
 }
 
 /* 🌟 僅新增：設計相簿專屬 CSS，與妳原有的排版完全相容 🌟 */
@@ -479,6 +591,19 @@ const handleDemoClick = (event, url) => {
 
     .detail-title {
         font-size: 1.75rem;
+    }
+
+    .features-grid,
+    .highlights-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 960px) {
+
+    .features-grid,
+    .highlights-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 </style>
