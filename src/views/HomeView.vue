@@ -463,20 +463,15 @@ const copyEmail = async () => {
   flex-direction: column;
   justify-content: center;
   gap: 3px;
-  border-radius: 8px;
   color: #24304f;
-  border: 1px solid #fed7aa;
-  background: linear-gradient(145deg, #fff7ed, #ffedd5);
 }
 
 .browser-content span:nth-child(2) {
-  border-color: #bfdbfe;
-  background: linear-gradient(145deg, #eff6ff, #dbeafe);
+  color: #1d4ed8;
 }
 
 .browser-content span:nth-child(3) {
-  border-color: #bbf7d0;
-  background: linear-gradient(145deg, #f0fdf4, #dcfce7);
+  color: #047857;
 }
 
 .browser-content b {
@@ -487,9 +482,10 @@ const copyEmail = async () => {
 
 .browser-content small {
   overflow: hidden;
-  color: #142870;
+  color: currentColor;
   font-size: .58rem;
   line-height: 1.4;
+  opacity: .78;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -589,13 +585,18 @@ const copyEmail = async () => {
 }
 
 .visual-tags span {
-  padding: .35rem .6rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 999px;
-  background: rgb(255 255 255 / 94%);
-  color: #475569;
+  --tag-color: #a32903da;
+  padding: .2rem 0;
+  color: var(--tag-color);
   font-size: .65rem;
-  box-shadow: 0 8px 18px rgb(15 23 42 / 6%);
+  font-weight: 800;
+}
+
+.visual-tags span::before {
+  color: var(--tag-color);
+  content: "#";
+  margin-right: .12rem;
+  opacity: .45;
 }
 
 .metrics-section {
@@ -1044,13 +1045,14 @@ const copyEmail = async () => {
   }
 
   .visual-tags {
-    bottom: 6px;
-    max-width: calc(100% - 140px);
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
   }
 
   .carousel-dots {
     right: 84px;
-    bottom: 38px;
+    bottom: 52px;
   }
 
   .metrics-grid,
@@ -1122,12 +1124,12 @@ const copyEmail = async () => {
 
   .browser-content {
     gap: 6px;
-    padding: 10px;
+    padding: 10px 10px 18px;
   }
 
   .browser-content span {
-    min-height: 62px;
-    padding: 7px 6px;
+    min-height: 48px;
+    padding: 4px 2px;
   }
 
   .browser-content b {
@@ -1165,17 +1167,18 @@ const copyEmail = async () => {
   .visual-tags {
     right: 0;
     bottom: 0;
-    max-width: calc(100% - 128px);
+    max-width: 100%;
     gap: .3rem;
+    justify-content: flex-end;
   }
 
   .carousel-dots {
     right: 0;
-    bottom: 38px;
+    bottom: 54px;
   }
 
   .visual-tags span {
-    padding: .3rem .48rem;
+    padding: .2rem 0;
     font-size: .56rem;
   }
 

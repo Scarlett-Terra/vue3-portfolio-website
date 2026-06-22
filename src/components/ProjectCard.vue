@@ -151,9 +151,6 @@ const handleViewDetail = () => {
 
 .tag {
     padding: 0.3rem 0.7rem;
-    border: 1px solid #fed7aa;
-    border-radius: 999px;
-    background: #fff7ed;
     color: #9a3412;
     font-size: 0.8rem;
     font-weight: 600;
