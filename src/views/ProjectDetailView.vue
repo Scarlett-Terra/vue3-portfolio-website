@@ -5,13 +5,14 @@
 
             <div class="banner-wrapper" v-if="!currentProject.isGallery"
                 :style="{ '--banner-image': `url(${currentProject.image})` }">
-                <img :src="currentProject.image" class="detail-banner" :alt="currentProject.title" />
+                <img :src="currentProject.image" class="detail-banner" :alt="currentProject.title"
+                    decoding="async" />
             </div>
 
             <div class="design-gallery" v-else>
                 <button v-for="(img, index) in currentProject.images" :key="img.id" type="button" class="gallery-item"
                     :aria-label="`放大查看：${img.alt}`" @click="openLightbox(index)">
-                    <img :src="img.thumbnail" :alt="img.alt" loading="lazy" />
+                    <img :src="img.thumbnail" :alt="img.alt" loading="lazy" decoding="async" />
                     <div class="gallery-overlay">
                         <span>點擊放大</span>
                     </div>
@@ -85,7 +86,7 @@
             <button type="button" class="close-lightbox-btn" aria-label="關閉圖片預覽" @click.stop="closeLightbox">×</button>
             <div class="lightbox-content" @click.stop>
                 <img :src="currentProject.images[activeImageIndex].full"
-                    :alt="currentProject.images[activeImageIndex].alt" />
+                    :alt="currentProject.images[activeImageIndex].alt" decoding="async" />
                 <p class="lightbox-caption">{{ currentProject.images[activeImageIndex].alt }}</p>
             </div>
         </div>

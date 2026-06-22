@@ -135,7 +135,8 @@
         </div>
 
         <footer class="footer-card">
-          <img :src="footerBotanicalUrl" alt="" class="footer-botanical" aria-hidden="true" />
+          <img :src="footerBotanicalUrl" alt="" class="footer-botanical" aria-hidden="true" loading="lazy"
+            decoding="async" />
           <div class="footer-message">
             <span class="footer-label">Explore My Work</span>
             <p>從需求理解到介面實作，<br>每一份作品都是持續學習與改善的紀錄。</p>
@@ -145,7 +146,8 @@
             <div class="qr-item">
               <a class="portfolio-qr-card" :href="portfolioUrl" target="_blank" rel="noopener noreferrer"
                 aria-label="掃描或開啟 Scarlett Yu 的作品集網站">
-                <img :src="portfolioQrUrl" alt="作品集網站 QR Code" class="qr-code" />
+                <img :src="portfolioQrUrl" alt="作品集網站 QR Code" class="qr-code" loading="lazy"
+                  decoding="async" />
                 <span>
                   <strong>作品集 Portfolio</strong>
                   <small>SCAN TO VIEW</small>

@@ -1,7 +1,8 @@
 <template>
     <div class="project-card">
         <div class="project-img-wrapper">
-            <img :src="projectData.image" :alt="projectData.title" class="project-img" />
+            <img :src="projectData.image" :alt="projectData.title" class="project-img" loading="lazy"
+                decoding="async" />
         </div>
 
         <div class="project-content">
