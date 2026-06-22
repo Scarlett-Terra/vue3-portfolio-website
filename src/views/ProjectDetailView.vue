@@ -411,8 +411,8 @@ const handleDemoClick = (event, url) => {
     align-items: center;
     gap: 0.55rem;
     margin: 0 0 1rem;
-    color: #102a63;
-    font-size: 1.15rem;
+    color: #a32903da;
+    font-size: 1.5rem;
     font-weight: 800;
 }
 
