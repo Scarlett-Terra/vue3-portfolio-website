@@ -6,7 +6,7 @@
 
         <div class="skills-grid">
             <SkillCard v-for="skill in mySkills" :key="skill.id" :skill-name="skill.name" :skill-icon="skill.icon"
-                :stars="skill.stars" />
+                :stars="skill.stars" :filter-tech="skill.filterTech || skill.name" />
         </div>
 
         <section class="workflow-section">
@@ -39,10 +39,10 @@ const mySkills = [
     { id: 3, name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', stars: 3 },
     { id: 4, name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', stars: 3 },
     { id: 5, name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', stars: 4 },
-    { id: 6, name: 'PS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg', stars: 4 },
+    { id: 6, name: 'PS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg', stars: 4, filterTech: 'Photoshop' },
     { id: 7, name: 'Illustrator', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg', stars: 4 },
     { id: 8, name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', stars: 3 },
-    { id: 9, name: 'UI-UX', icon: 'https://api.iconify.design/solar:window-frame-linear.svg?color=%234338ca', stars: 4 }
+    { id: 9, name: 'UI-UX', icon: 'https://api.iconify.design/solar:window-frame-linear.svg?color=%234338ca', stars: 4, filterTech: 'UI/UX' }
 
 ]
 

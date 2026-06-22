@@ -472,8 +472,53 @@ export const projects = [
     ],
   },
   {
-    id: 'ps-gallery',
+    id: 'figma-prototype-assignment',
     order: 22,
+    title: 'Figma 互動原型設計作業',
+    type: 'UI/UX Prototype',
+    year: '2026-June',
+    description: '以 Figma 製作介面流程與互動展示，透過 Prototype 分享連結呈現可點擊的 Demo 成品。',
+    features: ['互動原型', '介面流程', 'Demo展示'],
+    detailedFeatures: [
+      {
+        title: 'Figma 原型展示',
+        desc: '使用 Figma Prototype 建立可點擊的頁面流程，讓觀看者能直接體驗介面切換與操作動線。'
+      },
+      {
+        title: 'UI 版面規劃',
+        desc: '整理畫面資訊層級、區塊排列與視覺節奏，讓作品能清楚呈現設計思考與使用流程。'
+      },
+      {
+        title: '分享連結 Demo',
+        desc: '透過 Figma 分享網址展示最終成果，方便從作品集快速開啟並檢視互動成品。'
+      }
+    ],
+    highlights: [
+      {
+        title: 'Prototype 流程串接',
+        desc: '將不同畫面透過互動節點串起來，呈現接近實際產品操作的瀏覽體驗。'
+      },
+      {
+        title: '設計稿作品集整合',
+        desc: '把 Figma 作業整理成作品卡與詳細頁，讓設計能力能和前端作品一起被看見。'
+      }
+    ],
+    detailDescription:
+      '此作品為 Figma 互動原型設計作業，重點放在 UI 畫面整理、使用流程規劃與 Prototype 點擊展示。作品集內可直接開啟 Figma Demo，檢視完整互動成品。',
+    image: publicAsset('images/projects/figma-prototype.svg'),
+    technologies: ['Figma', 'UI/UX', 'Prototype', 'Wireframe'],
+    demo: 'https://www.figma.com/proto/qobHZUGGf6czJSyrB000Gv/Untitled?node-id=230-3453&t=bpeJpnzCjXc4bsGK-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=230%3A2459&show-proto-sidebar=1',
+    hasDetailPage: true,
+    demoLinks: [
+      {
+        label: '開啟 Figma Demo',
+        url: 'https://www.figma.com/proto/qobHZUGGf6czJSyrB000Gv/Untitled?node-id=230-3453&t=bpeJpnzCjXc4bsGK-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=230%3A2459&show-proto-sidebar=1'
+      },
+    ],
+  },
+  {
+    id: 'ps-gallery',
+    order: 23,
     title: 'Photoshop 視覺設計合集',
     type: 'Visual Design',
     year: '2026-May',
@@ -498,7 +543,7 @@ export const projects = [
   },
   {
     id: 'ai-gallery',
-    order: 23,
+    order: 24,
     title: 'Illustrator 向量圖、AI 生成圖合集',
     type: 'Illustration',
     year: '2026-May',

@@ -50,7 +50,9 @@
                     <div class="features-grid">
                         <div v-for="(item, index) in currentProject.detailedFeatures" :key="item.title"
                             class="feature-card">
-                            <span class="feature-icon" aria-hidden="true">{{ index + 1 }}</span>
+                            <span class="feature-icon" aria-hidden="true">
+                                <SvgIcon :path="getFeatureIconPath(item.title)" />
+                            </span>
                             <h4>{{ item.title }}</h4>
                             <p>{{ item.desc }}</p>
                         </div>
@@ -61,7 +63,9 @@
                     <h3 class="section-subtitle">開發亮點</h3>
                     <div class="highlights-list">
                         <div v-for="item in currentProject.highlights" :key="item.title" class="highlight-item">
-                            <span class="highlight-icon" aria-hidden="true"></span>
+                            <span class="highlight-icon" aria-hidden="true">
+                                <SvgIcon :path="getHighlightIconPath(item.title)" />
+                            </span>
                             <div>
                                 <strong>{{ item.title }}</strong>
                                 <p>{{ item.desc }}</p>
@@ -122,6 +126,49 @@ const hasStructuredDetails = computed(() => {
         currentProject.value.highlights?.length
     )
 })
+
+const featureIconRules = [
+    { keywords: ['商品列表', '商品', '產品'], icon: 'shoppingBag' },
+    { keywords: ['加入購物車', '購物車', '結帳'], icon: 'shoppingCart' },
+    { keywords: ['API', '串接', '資料讀取'], icon: 'cloudData' },
+    { keywords: ['訂單', '管理', '列表'], icon: 'clipboardList' },
+    { keywords: ['搜尋', '篩選', '查詢'], icon: 'search' },
+    { keywords: ['交通', '路途', '導覽'], icon: 'route' },
+    { keywords: ['FAQ', '問題', '折疊'], icon: 'helpCircle' },
+    { keywords: ['城市', '區域', '景點', '旅遊'], icon: 'map' },
+    { keywords: ['路由', '多頁', '頁面'], icon: 'pages' },
+    { keywords: ['響應式', 'RWD', '版面'], icon: 'responsive' },
+    { keywords: ['新增', '輸入', '表單'], icon: 'plusSquare' },
+    { keywords: ['統計', '計算'], icon: 'barChart' },
+    { keywords: ['即時', '同步', '更新'], icon: 'refresh' },
+]
+
+const getFeatureIconPath = (title) => {
+    const match = featureIconRules.find(rule =>
+        rule.keywords.some(keyword => title.includes(keyword))
+    )
+
+    return iconPaths[match?.icon] || iconPaths.sparkles
+}
+
+const highlightIconRules = [
+    { keywords: ['LocalStorage', '儲存', '保留'], icon: 'save' },
+    { keywords: ['API', 'Axios', '串接', '請求'], icon: 'cloudData' },
+    { keywords: ['同步', '狀態', '即時', '更新'], icon: 'refresh' },
+    { keywords: ['組件', '元件', 'Components', '封裝'], icon: 'components' },
+    { keywords: ['企劃', '架構', '資料結構', '整理'], icon: 'database' },
+    { keywords: ['導覽', '體驗', '流程'], icon: 'route' },
+    { keywords: ['路由', 'Router'], icon: 'pages' },
+    { keywords: ['統計', 'Computed', '計算'], icon: 'barChart' },
+]
+
+const getHighlightIconPath = (title) => {
+    const match = highlightIconRules.find(rule =>
+        rule.keywords.some(keyword => title.includes(keyword))
+    )
+
+    return iconPaths[match?.icon] || iconPaths.sparkles
+}
 
 // 🌟 新增：控制燈箱目前點開哪一張圖的變數
 const activeImageIndex = ref(null)
@@ -379,12 +426,12 @@ const handleDemoClick = (event, url) => {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
 }
 
 .feature-card {
-    min-height: 190px;
+    min-height: 230px;
     padding: 1.35rem 1rem;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -407,56 +454,70 @@ const handleDemoClick = (event, url) => {
     font-weight: 900;
 }
 
+.feature-icon :deep(.svg-icon) {
+    width: 2rem;
+    height: 2rem;
+}
+
 .features-grid h4 {
     margin: 0;
     color: #0f172a;
-    font-size: 1rem;
+    font-size: 1.4rem;
     line-height: 1.35;
 }
 
 .features-grid p {
     margin: 0.65rem 0 0;
     color: #475569;
-    font-size: 0.92rem;
+    font-size: 1.1rem;
     line-height: 1.7;
 }
 
 .highlights-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1rem;
 }
 
 .highlight-item {
     display: flex;
     gap: 0.9rem;
-    min-height: 118px;
+    min-height: 142px;
     padding: 1.15rem;
     border-radius: 8px;
     background: #f4f7ff;
 }
 
 .highlight-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex: 0 0 auto;
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 999px;
     background:
-        linear-gradient(135deg, #dbeafe, #eff6ff);
+    linear-gradient(135deg, #dbeafe, #eff6ff);
     border: 1px solid #bfdbfe;
+    color: #075eea;
+}
+
+.highlight-icon :deep(.svg-icon) {
+    width: 1.65rem;
+    height: 1.65rem;
 }
 
 .highlight-item strong {
     display: block;
     color: #102a63;
-    font-size: 0.98rem;
+    font-size: 1.4rem;
     line-height: 1.4;
 }
 
 .highlight-item p {
     margin: 0.35rem 0 0;
     color: #475569;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 1.65;
 }
 

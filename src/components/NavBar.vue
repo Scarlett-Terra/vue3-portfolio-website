@@ -84,9 +84,13 @@ const closeMenu = () => {
   flex-direction: column;
   line-height: 1.2;
 }
+.brand-copy strong:hover {
+  scale: 0.98;
+  color: #c2410c;
+}
 
 .brand-copy strong {
-  color: #10183b;
+  color: #02046e;
   font-size: 1.65rem;
   font-weight: 500;
   letter-spacing: -0.03em;
@@ -121,7 +125,7 @@ const closeMenu = () => {
   display: block;
   padding: 0.8rem 1.15rem;
   border-radius: 8px;
-  color: #475569;
+  color: #02046e;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -132,6 +136,7 @@ const closeMenu = () => {
 .nav-item:hover {
   background: #fffaf5;
   color: #c2410c;
+  scale: 0.98;
 }
 
 .nav-item.router-link-exact-active {

@@ -7,8 +7,8 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/vue3-portfolio-website/',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/vue3-portfolio-website/',
   plugins: [
     vue(),
     vueDevTools(),
@@ -32,4 +32,4 @@ export default defineConfig({
   build: {
     outDir: 'docs', // 👈 沒錯，聽你原本 AI 的，保持 docs 不動！
   },
-})
+}))

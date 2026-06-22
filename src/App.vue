@@ -1,9 +1,8 @@
 <template>
   <div class="app-container">
     <NavBar :nav-links="menuItems" />
-
     <main class="main-content">
-      
+
       <RouterView />
     </main>
   </div>

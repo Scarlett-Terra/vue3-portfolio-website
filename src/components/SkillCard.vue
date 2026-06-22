@@ -1,5 +1,5 @@
 <template>
-    <RouterLink :to="{ path: '/projects', query: { tech: skillName } }" class="skill-card-link">
+    <RouterLink :to="{ path: '/projects', query: { tech: targetTech } }" class="skill-card-link">
         <div class="skill-card">
             <div class="icon-wrapper">
                 <img :src="skillIcon" :alt="`${skillName} 圖示`" class="skill-img" loading="lazy" />
@@ -14,7 +14,9 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
     skillName: {
         type: String,
         required: true,
@@ -27,7 +29,13 @@ defineProps({
         type: Number,
         required: true,
     },
+    filterTech: {
+        type: String,
+        default: '',
+    },
 })
+
+const targetTech = computed(() => props.filterTech || props.skillName)
 </script>
 
 <style scoped>

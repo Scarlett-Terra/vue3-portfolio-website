@@ -68,7 +68,11 @@ const filteredProjects = computed(() => {
 
         // 【條件一：檢查首頁技能卡的網址參數 (?tech=xxxx)】
         const currentTechQuery = route.query.tech
-        if (currentTechQuery && !project.technologies.includes(currentTechQuery)) {
+        const matchesTechQuery = currentTechQuery === 'Git'
+            ? Boolean(project.github || project.technologies.includes('Git'))
+            : project.technologies.includes(currentTechQuery)
+
+        if (currentTechQuery && !matchesTechQuery) {
             return false // 如果網址有指定技術，且該作品不包含，直接淘汰
         }
 
