@@ -145,15 +145,26 @@ const handleViewDetail = () => {
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.3rem 0;
     margin-bottom: 1.5rem;
+    color: #f59e0b;
 }
 
 .tag {
-    padding: 0.3rem 0.7rem;
+    display: inline-flex;
+    align-items: center;
     color: #9a3412;
     font-size: 0.8rem;
     font-weight: 600;
+    line-height: 1.8;
+}
+
+.tag + .tag::before {
+    content: "|";
+    margin-inline: 0.65rem;
+    color: #f59e0b;
+    font-weight: 500;
 }
 
 .view-btn {

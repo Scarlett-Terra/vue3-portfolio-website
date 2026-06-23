@@ -8,7 +8,7 @@
 
         <div class="filter-bar">
             <div class="search-box">
-                <input v-model="searchKeyword" type="search" placeholder="搜尋作品名稱、描述或技術（如：Vue, App）..."
+                <input v-model="searchKeyword" type="search" placeholder="搜尋作品類型、描述（如：Vue...)"
                     class="filter-input" aria-label="搜尋作品" />
                 <button v-if="searchKeyword" type="button" @click="searchKeyword = ''" class="clear-input-btn">清除</button>
             </div>
@@ -348,9 +348,9 @@ watch([searchKeyword, selectedCategory], () => {
 @media (max-width: 768px) {
     .projects-header::before,
     .projects-header::after {
-        top: 25%;
-        right: 2%;
-        width: 110px;
+        top: 43%;
+        right: 50%;
+        width: min(74vw, 300px);
         border-width: 6px;
     }
 

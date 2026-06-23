@@ -19,7 +19,7 @@
                 </button>
             </div>
             <button type="button" class="back-btn" @click="goBack">← 回到作品列表</button>
-            <h2 class="detail-title">{{ currentProject.title }}</h2>
+            <h2 ref="detailTitleRef" class="detail-title" tabindex="-1">{{ currentProject.title }}</h2>
 
             <div class="tech-tags">
                 <span v-for="tech in currentProject.technologies" :key="tech" class="tag">
@@ -95,7 +95,7 @@
 
 
 <script setup>
-import { computed, ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { computed, ref, nextTick, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SvgIcon from '../components/SvgIcon.vue'
 import { iconPaths } from '../data/icons'
@@ -103,6 +103,7 @@ import { projects } from '../data/projects'
 
 const route = useRoute()
 const router = useRouter()
+const detailTitleRef = ref(null)
 
 // 根據路徑參數 params.id 抓取對應作品
 // 根據路徑參數 params.id 抓取對應作品
@@ -127,6 +128,16 @@ const hasStructuredDetails = computed(() => {
         currentProject.value.highlights?.length
     )
 })
+
+const focusDetailTitle = async () => {
+    if (!currentProject.value) return
+
+    await nextTick()
+    requestAnimationFrame(() => {
+        detailTitleRef.value?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+        detailTitleRef.value?.focus({ preventScroll: true })
+    })
+}
 
 const featureIconRules = [
     { keywords: ['商品列表', '商品', '產品'], icon: 'shoppingBag' },
@@ -208,6 +219,12 @@ onMounted(() => {
             activeImageIndex.value = index
         }
     }
+
+    focusDetailTitle()
+})
+
+watch(() => route.params.id, () => {
+    focusDetailTitle()
 })
 
 onBeforeUnmount(() => {
@@ -315,24 +332,42 @@ const handleDemoClick = (event, url) => {
     /* 搭配名片深藍色 */
     margin-top: 0;
     margin-bottom: 1rem;
+    scroll-margin-top: 6.5rem;
 }
 
-/* 🌟 技術標籤設計（與列表頁面呼應，維持高質感橘黃色調） */
+.detail-title:focus {
+    outline: none;
+}
+
+.detail-title:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 0.35rem;
+}
+
+/* 🌟 技術標籤設計（與列表頁面呼應，以分隔符號收斂視覺節奏） */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    align-items: center;
+    gap: 0.35rem 0;
     margin-bottom: 1.5rem;
+    color: #f59e0b;
 }
 
 .tag {
-    padding: 0.3rem 0.7rem;
-    border: 1px solid #fed7aa;
-    border-radius: 999px;
-    background: #fff7ed;
+    display: inline-flex;
+    align-items: center;
     color: #9a3412;
     font-size: 0.8rem;
     font-weight: 600;
+    line-height: 1.8;
+}
+
+.tag + .tag::before {
+    content: "|";
+    margin-inline: 0.7rem;
+    color: #f59e0b;
+    font-weight: 500;
 }
 
 .detail-desc {

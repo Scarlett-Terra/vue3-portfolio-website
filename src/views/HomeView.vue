@@ -1026,6 +1026,14 @@ const copyEmail = async () => {
     font-size: clamp(2.35rem, 11vw, 3rem);
   }
 
+  .hero-layout::before,
+  .hero-layout::after {
+    top: clamp(7.75rem, 25vw, 10rem);
+    left: 50%;
+    width: min(82vw, 320px);
+    border-width: 10px;
+  }
+
   .hero-layout {
     gap: 2rem;
   }

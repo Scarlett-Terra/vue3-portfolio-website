@@ -210,6 +210,10 @@ const workflow = [
     .workflow-list li {
         display: grid;
         grid-template-columns: 70px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1.25rem;
+        row-gap: 0.8rem;
+        align-items: start;
         padding: 1.25rem;
         border: 1px solid #e2e8f0;
         border-radius: 14px;
@@ -219,18 +223,24 @@ const workflow = [
 
     .step-number {
         grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        align-self: start;
+        line-height: 1.2;
+        padding-top: 0.15rem;
     }
 
     .step-icon {
         grid-column: 1;
         grid-row: 2;
-        margin: 0.5rem 0 0;
+        justify-self: center;
+        margin: 0;
     }
 
     .step-content {
         grid-column: 2;
         grid-row: 1 / 3;
-        align-self: center;
+        align-self: start;
     }
 }
 
