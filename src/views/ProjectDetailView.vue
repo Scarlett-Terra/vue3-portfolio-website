@@ -29,18 +29,34 @@
 
             <p class="detail-desc">{{ currentProject.detailDescription }}</p>
 
-            <div class="action-links"
+            <div class="action-links" :class="{ 'is-demo-collection': isDemoCollection }"
                 v-if="!currentProject.isGallery && (currentProject.github || projectDemoLinks.length)">
                 <a v-if="currentProject.github" :href="currentProject.github" target="_blank" rel="noopener noreferrer"
                     class="link-btn github-btn">
                     <SvgIcon :path="iconPaths.github" />
                     GitHub 連結
                 </a>
-                <a v-for="link in projectDemoLinks" :key="link.url" :href="link.url" target="_blank"
-                    rel="noopener noreferrer" class="link-btn demo-btn" @click="handleDemoClick($event, link.url)">
-                    <SvgIcon :path="iconPaths.externalLink" />
-                    {{ link.label }}
-                </a>
+                <template v-if="isDemoCollection">
+                    <a v-if="primaryDemoLink" :href="primaryDemoLink.url" target="_blank" rel="noopener noreferrer"
+                        class="link-btn demo-btn primary-demo-btn" @click="handleDemoClick($event, primaryDemoLink.url)">
+                        <SvgIcon :path="iconPaths.externalLink" />
+                        {{ primaryDemoLink.label }}
+                    </a>
+                    <div class="demo-link-grid" aria-label="Demo 作品清單">
+                        <a v-for="link in secondaryDemoLinks" :key="link.url" :href="link.url" target="_blank"
+                            rel="noopener noreferrer" class="mini-demo-link" @click="handleDemoClick($event, link.url)">
+                            <SvgIcon :path="iconPaths.externalLink" />
+                            {{ link.label }}
+                        </a>
+                    </div>
+                </template>
+                <template v-else>
+                    <a v-for="link in projectDemoLinks" :key="link.url" :href="link.url" target="_blank"
+                        rel="noopener noreferrer" class="link-btn demo-btn" @click="handleDemoClick($event, link.url)">
+                        <SvgIcon :path="iconPaths.externalLink" />
+                        {{ link.label }}
+                    </a>
+                </template>
             </div>
 
             <div class="custom-detail-content" v-if="hasStructuredDetails">
@@ -127,6 +143,18 @@ const hasStructuredDetails = computed(() => {
         currentProject.value.detailedFeatures?.length ||
         currentProject.value.highlights?.length
     )
+})
+
+const isDemoCollection = computed(() => projectDemoLinks.value.length > 4)
+
+const primaryDemoLink = computed(() => {
+    if (!isDemoCollection.value) return null
+    return projectDemoLinks.value[0]
+})
+
+const secondaryDemoLinks = computed(() => {
+    if (!isDemoCollection.value) return []
+    return projectDemoLinks.value.slice(1)
 })
 
 const focusDetailTitle = async () => {
@@ -388,6 +416,10 @@ const handleDemoClick = (event, url) => {
     padding-top: 1rem;
 }
 
+.action-links.is-demo-collection {
+    align-items: stretch;
+}
+
 .link-btn {
     display: inline-flex;
     align-items: center;
@@ -398,6 +430,49 @@ const handleDemoClick = (event, url) => {
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
+}
+
+.primary-demo-btn {
+    background: #031682;
+    box-shadow: 0 10px 22px rgb(3 22 130 / 12%);
+}
+
+.demo-link-grid {
+    display: grid;
+    flex-basis: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 0.75rem;
+}
+
+.mini-demo-link {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #dbe3ef;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mini-demo-link:hover {
+    border-color: #f59e0b;
+    color: #c2410c;
+    box-shadow: 0 8px 18px rgb(15 23 42 / 8%);
+    transform: translateY(-2px);
+}
+
+.mini-demo-link:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
 }
 
 /* GitHub 按鈕：外框藍黑色調 */
@@ -565,7 +640,7 @@ const handleDemoClick = (event, url) => {
     margin-bottom: 2rem;
 }
 
-.gallery-item {
+.galery-item {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
@@ -684,6 +759,10 @@ const handleDemoClick = (event, url) => {
 
     .link-btn {
         justify-content: center;
+    }
+
+    .demo-link-grid {
+        grid-template-columns: 1fr;
     }
 
     .detail-title {

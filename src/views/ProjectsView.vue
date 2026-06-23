@@ -17,17 +17,13 @@
                 <select v-model="selectedCategory" class="filter-select" aria-label="篩選作品類型">
                     <option disabled value="">選擇作品類型</option>
                     <option value="all">全部類型</option>
-                    <option value="web">網站類</option>
-                    <option value="app">App 應用類</option>
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="Vue.js">Vue.js</option>
-                    <option value="Git">Git</option>
                     <option value="Photoshop">Photoshop</option>
                     <option value="Illustrator">Illustrator</option>
                     <option value="Figma">Figma</option>
-                    <option value="UI/UX">UI/UX</option>
                 </select>
             </div>
         </div>

@@ -5,11 +5,13 @@
 
       <RouterView />
     </main>
+    <GoTop />
   </div>
 </template>
 
 <script setup>
 import { RouterView } from 'vue-router'
+import GoTop from './components/GoTop.vue'
 import NavBar from './components/NavBar.vue'
 
 
