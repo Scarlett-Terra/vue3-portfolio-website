@@ -340,6 +340,7 @@ export const projects = [
     technologies: ['HTML', 'CSS', 'UI/UX', 'Flex'],
     github: 'https://github.com/Scarlett-Terra/Chung-Hsing-University-Front-end-Technology-Course/tree/main/uiux-design-wireframes',
     demo: 'https://scarlett-terra.github.io/Chung-Hsing-University-Front-end-Technology-Course/uiux-design-wireframes/index.html',
+    demoLabel: '開啟完整 Demo 頁面',
     hasDetailPage: true,
   },
   {
