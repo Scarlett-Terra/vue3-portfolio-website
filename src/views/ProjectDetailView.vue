@@ -472,8 +472,7 @@ const handleDemoClick = (event, url) => {
 }
 
 .detail-title:focus-visible {
-    outline: 3px solid #f59e0b;
-    outline-offset: 0.35rem;
+    outline: none;
 }
 
 /* 🌟 技術標籤設計（與列表頁面呼應，以分隔符號收斂視覺節奏） */
