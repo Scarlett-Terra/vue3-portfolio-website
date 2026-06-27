@@ -47,7 +47,9 @@ export const projects = [
     demo: 'https://nchu-11503-qingshui-artvillage.dev-hub.io/?a=1',
     hasDetailPage: true,
     demoLinks: [
-      { label: '開啟清水眷村', url: 'https://nchu-11503-qingshui-artvillage.dev-hub.io/?a=1' }
+      { label: '原網站分析對照', url: 'https://www.qingshuiartvillage.net/' },
+      { label: 'Figma 痛點分析與資訊架構', url: 'https://www.figma.com/board/1rTQplxK1QpkNwuNer96Lb/%E7%AC%AC%E4%BA%94%E7%B5%84-%E6%9C%9D%E4%BA%94%E6%99%9A%E4%B9%9D?node-id=5-709&t=J3XXecPBHU94IihC-0' },
+      { label: '優化後網站 Demo', url: 'https://nchu-11503-qingshui-artvillage.dev-hub.io/?a=1' }
     ],
   }
   ,
